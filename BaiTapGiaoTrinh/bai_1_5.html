@@ -17,36 +17,96 @@
             crossorigin="anonymous"
         />
     </head>
-
+        <style>
+            .box{
+                padding: 10px 0px;
+                background: #ccc;
+            }
+        </style>
     <body>
         <header>
             <!-- place navbar here -->
         </header>
         <main>
-         <div class="container mb-4">
-                <div class="row">
+         <div class="container">
+            <h4>a)</h4>
+            <div class="row">
                     <div class="col-md-8 bg-info">
                         <div class="row">
-                            <div class="box"><h1>Đây là nội dung bên trái</h1></div>
+                          <div class="col-sm-12">
+                              <div class="box text-center" style="background: none;">Đây là nội dung bên trái</div>
+                          </div>
                         </div>
                     </div>
-                    <div class="col-4">
-                        <div class="row pl-3">
-                            <div class="col-12 bg-primary">
-                                <h3>Nội dung bên phải trên</h3>
-                            </div>
-                        </div>
+                    <!-- cột phải -->
+                    <div class="col-md-4">
+                        <!-- phải trên -->
                         <div class="row">
-                            <div class="col-6 bg-success">
-                                <h5>Nội dung phải dưới trái</h5>
+                            <div class="col-sm-12 pe-0">
+                                <div class="box bg-primary text-center">phải trên</div>
                             </div>
-                            <div class="col-6 bg-warning">
-                                <h5>Nội dung phải dưới phải</h5>
+                        </div>
+                        <!-- phải dưới -->
+                        <div class="row mt-2">
+                            <!-- phải dưới trái -->
+                            <div class="col-sm-12 col-md-6 pe-0">
+                                <div class="box bg-success text-center">phải trái</div>
+                            </div>
+                              <!-- phải dưới phải -->
+                            <div class="col-sm-12 col-md-6 pe-0">
+                                <div class="box bg-warning text-center">phải phải</div>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
+            
+            <hr class="my-4">
+
+            <!-- b) -->
+            <h4>b)</h4>
+            <div class="row g-3">
+                <div class="col-sm-6 col-md-3"><div class="box text-center">Box 1</div></div>
+                <div class="col-sm-6 col-md-3"><div class="box text-center">Box 2</div></div>
+                <div class="col-sm-6 col-md-3"><div class="box text-center">Box 3</div></div>
+                <div class="col-sm-6 col-md-3"><div class="box text-center">Box 4</div></div>
+                <div class="col-sm-6 col-md-3"><div class="box text-center">Box 5</div></div>
+                <div class="col-sm-6 col-md-3"><div class="box text-center">Box 6</div></div>
+                <div class="col-sm-6 col-md-3"><div class="box text-center">Box 7</div></div>
+                <div class="col-sm-6 col-md-3"><div class="box text-center">Box 8</div></div>
+                <div class="col-sm-6 col-md-3"><div class="box text-center">Box 9</div></div>
+                <div class="col-sm-6 col-md-3"><div class="box text-center">Box 10</div></div>
+                <div class="col-sm-6 col-md-3"><div class="box text-center">Box 11</div></div>
+                <div class="col-sm-6 col-md-3"><div class="box text-center">Box 12</div></div>
+            </div>
+
+            <hr class="my-4">
+
+            <h4>c)</h4>
+            <div class="row g-3">
+                <div class="col-md-6"><div class="box">.col-md-6</div></div>
+                <div class="col-md-6"><div class="box">.col-md-6</div></div>
+                <div class="col-md-4"><div class="box">.col-md-4</div></div>
+                <div class="col-md-8"><div class="box">.col-md-8</div></div>
+                <div class="col-md-3"><div class="box">.col-md-3</div></div>
+                <div class="col-md-9"><div class="box">.col-md-9</div></div>
+            </div>
+
+            <hr class="my-4">
+
+            <h4>d)</h4>
+            <div class="row g-3">
+                <div class="col-lg-4"><div class="box">.col-lg-4</div></div>
+                <div class="col-lg-4"><div class="box">.col-lg-4</div></div>
+                <div class="col-lg-4"><div class="box">.col-lg-4</div></div>
+                <div class="col-lg-2"><div class="box">.col-lg-2</div></div>
+                <div class="col-lg-8"><div class="box">.col-lg-8</div></div>
+                <div class="col-lg-2"><div class="box">.col-lg-2</div></div>
+                <div class="col-lg-3"><div class="box">.col-lg-3</div></div>
+                <div class="col-lg-7"><div class="box">.col-lg-7</div></div>
+                <div class="col-lg-2"><div class="box">.col-lg-2</div></div>
+            </div>
+
+            <hr class="my-4">
         </div>
         </main>
         <footer>
