@@ -1,32 +1,31 @@
 <!-- Tiêu đề trung tâm cực nổi -->
 <h1 align="center">✨ Xin chào, mình là Nguyễn Hải Đăng ✨</h1>
 
-<!-- Avatar và badge trung tâm -->
+<!-- Avatar trung tâm với viền sống động -->
 <p align="center">
-  <img src="AVATAR_URL" width="200" style="border-radius:50%; border:4px solid #ff6ec4;" alt="avatar"/>
+  <img src="https://scontent.fhan4-1.fna.fbcdn.net/v/t39.30808-1/490345583_1227462919008147_5229747862288566394_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=1d2534&_nc_ohc=3hhaDN24TVgQ7kNvwElyHcW&_nc_oc=AdnaZvffR5PoHpo9h92CIXtojbLVis9FIhFLMB4bty9cWeR-XDQ_htEqKXvhdOInp4Q&_nc_zt=24&_nc_ht=scontent.fhan4-1.fna&_nc_gid=bX8Qee-m7iMNoEeY6OMcbA&oh=00_AfUAqmzz-SAlooAwhPkTtpTMAUUonYw8ZxrdD-Yfy9TD7Q&oe=68AC2F38" width="200" style="border-radius:50%; border:4px solid #ff6ec4;" alt="avatar"/>
 </p>
 
 <p align="center">
-  <img src="[https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=FF6EC4&center=true&vCenter=true&width=500&lines=Lập+trình+viên+trẻ+đam+mê+công+nghệ;Yêu+thích+ASP.NET+%2F+C%23+và+Web+Dev;Luôn+sẵn+sàng+học+hỏi+%26+chia+sẻ" alt="Typing SVG](https://scontent.fhan4-1.fna.fbcdn.net/v/t39.30808-1/490345583_1227462919008147_5229747862288566394_n.jpg?stp=dst-jpg_s200x200_tt6&_nc_cat=105&ccb=1-7&_nc_sid=1d2534&_nc_ohc=3hhaDN24TVgQ7kNvwElyHcW&_nc_oc=AdnaZvffR5PoHpo9h92CIXtojbLVis9FIhFLMB4bty9cWeR-XDQ_htEqKXvhdOInp4Q&_nc_zt=24&_nc_ht=scontent.fhan4-1.fna&_nc_gid=bX8Qee-m7iMNoEeY6OMcbA&oh=00_AfUAqmzz-SAlooAwhPkTtpTMAUUonYw8ZxrdD-Yfy9TD7Q&oe=68AC2F38)"/>
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=FF6EC4&center=true&vCenter=true&width=500&lines=Lập+trình+viên+trẻ+đam+mê+công+nghệ;Yêu+thích+ASP.NET+%2F+C%23+và+Web+Dev;Luôn+sẵn+sàng+học+hỏi+%26+chia+sẻ" alt="Typing SVG"/>
 </p>
 
 ---
 
-<!-- Banner đẹp ở đầu -->
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=header" />
 </p>
 
 ---
 
-### 👨‍💻 Về mình
+### ​​​ Về mình
 - 🎓 Hiện tại học tập & nghiên cứu **lập trình web với ASP.NET / C#**  
 - 💡 Đam mê **viết code sạch**, **tạo ứng dụng hữu ích** và **khám phá công nghệ mới**  
 - ⚡ Quan điểm: *"Phần mềm tốt không chỉ hoạt động – nó phải dễ đọc, dễ mở rộng và bền vững."*  
 
 ---
 
-### 🚀 Kỹ năng & Công cụ
+### ​ Kỹ năng & Công cụ
 - **Ngôn ngữ:** C#, ASP.NET Web Forms/MVC, JavaScript, Python  
 - **Cơ sở dữ liệu:** SQL Server, MySQL  
 - **Công cụ:** Git/GitHub, Visual Studio, VS Code  
@@ -34,14 +33,14 @@
 
 ---
 
-### 🌟 Mục tiêu sắp tới
+### ​ Mục tiêu sắp tới
 - Nâng cao kỹ năng **kiến trúc phần mềm & bảo mật ứng dụng web**  
 - Khám phá **AI / Machine Learning**  
 - Đóng góp nhiều dự án **open-source** để học hỏi và chia sẻ  
 
 ---
 
-### 📊 Thống kê GitHub
+### ​ Thống kê GitHub
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=USERNAME_CỦA_BẠN&show_icons=true&theme=radical" height="150" />
   <img src="https://github-readme-streak-stats.herokuapp.com?user=USERNAME_CỦA_BẠN&theme=radical" height="150" />
@@ -53,7 +52,7 @@
 
 ---
 
-### 🌐 Kết nối với mình
+### ​ Kết nối với mình
 <p align="center">
   <a href="mailto:EMAIL_CỦA_BẠN"><img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/></a>
   <a href="https://www.facebook.com/NHD15004?locale=vi_VN"><img src="https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white"/></a>
@@ -61,7 +60,6 @@
 
 ---
 
-<!-- Hiệu ứng footer -->
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=footer" />
 </p>
