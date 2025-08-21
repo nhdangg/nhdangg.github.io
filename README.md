@@ -1,15 +1,18 @@
-<!-- Tiêu đề lớn với hiệu ứng trung tâm -->
+<!-- Tiêu đề trung tâm cực nổi -->
 <h1 align="center">✨ Xin chào, mình là Nguyễn Hải Đăng ✨</h1>
 
-<!-- Câu giới thiệu ngắn gọn ấn tượng -->
+<!-- Avatar và badge trung tâm -->
 <p align="center">
-  <strong>Một lập trình viên trẻ đam mê công nghệ, yêu thích khám phá và sáng tạo.</strong><br>
-  <em>"Code không chỉ để chạy – mà còn để truyền cảm hứng và giải quyết vấn đề thực tế."</em>
+  <img src="AVATAR_URL" width="200" style="border-radius:50%; border:4px solid #ff6ec4;" alt="avatar"/>
+</p>
+
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&pause=1000&color=FF6EC4&center=true&vCenter=true&width=500&lines=Lập+trình+viên+trẻ+đam+mê+công+nghệ;Yêu+thích+ASP.NET+%2F+C%23+và+Web+Dev;Luôn+sẵn+sàng+học+hỏi+%26+chia+sẻ" alt="Typing SVG"/>
 </p>
 
 ---
 
-<!-- Ảnh hoặc banner tuỳ chọn -->
+<!-- Banner đẹp ở đầu -->
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=header" />
 </p>
