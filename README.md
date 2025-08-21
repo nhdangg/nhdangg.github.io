@@ -14,7 +14,7 @@
 ---
 
 ### 🚀 Kỹ năng & Công cụ  
-- **Ngôn ngữ:** C#, ASP.NET Web Forms/MVC, JavaScript, Python  
+- **Ngôn ngữ:** C#, ASP.NET Web Forms/MVC, JavaScript, Java, PHP
 - **CSDL:** SQL Server, MySQL  
 - **Công cụ:** Git/GitHub, Visual Studio, VS Code  
 - **Khác:** Kiến thức về mạng máy tính, thiết kế web với Bootstrap, cấu hình thiết bị Cisco  
