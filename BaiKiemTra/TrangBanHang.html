@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siêu Thị Lộng Lẫy</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Font Awesome cho biểu tượng -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS (nếu chưa có) -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            min-height: 100vh;
+            margin: 0;
+        }
+        .navbar {
+            background: linear-gradient(90deg, #1e8a35 0%, #3b82f6 100%);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 1rem 0;
+        }
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff !important;
+            transition: color 0.3s;
+        }
+        .navbar-brand:hover {
+            color: #facc15 !important;
+        }
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+        .nav-link:hover {
+            color: #facc15 !important;
+            transform: translateY(-2px);
+        }
+        .hero-section {
+            background: url('/img/unnamed.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 120px 0;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+         
+        }
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+        .hero-section p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .product-card {
+            border: none;
+            border-radius: 15px;
+overflow: hidden;
+            background: #fff;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+        .product-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+        }
+        .product-card img {
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+        .product-card .card-body {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .product-card .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 0.75rem;
+        }
+        .product-card .card-text {
+            color: #6b7280;
+            font-size: 0.95rem;
+        }
+        .product-card .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #dc2626;
+            margin: 0.5rem 0;
+        }
+        .product-card .btn-primary {
+            background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+            border: none;
+            border-radius: 10px;
+            padding: 0.75rem 1.5rem;
+            font-weight: 500;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .product-card .btn-primary:hover {
+            background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+            transform: translateY(-3px);
+        }
+        .pagination {
+            justify-content: center;
+            margin: 3rem 0;
+        }
+        .pagination .page-link {
+            color: #1e3a8a;
+            border-radius: 8px;
+            margin: 0 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        .pagination .page-item.active .page-link {
+            background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+            border-color: #3b82f6;
+            color: #fff;
+        }
+        .pagination .page-link:hover {
+            background-color: #facc15;
+            color: #1e3a8a;
+            border-color: #facc15;
+        }
+        footer {
+            background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%);
+            color: #fff;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 3rem;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+        }
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            .product-card img {
+                height: 180px;
+            }
+        }
+        footer {
+      background: linear-gradient(90deg, #27ae60, #2ecc71);
+      color: white;
+      padding-top: 40px;
+    }
+    footer a {
+      color: #fef08a;
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #ffffff;
+    }
+        @media (max-width: 768px) {
+            footer .col-md-4 {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Siêu Thị Lộng Lẫy</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/BaiKiemTra/TrangBanHang.html">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/BaiKiemTra/idec.html">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Sản Phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Giỏ Hàng</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/BaiKiemTra/lienhe.html">Liên Hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/BaiKiemTra/login.html"><i class="bi bi-box-arrow-in-left"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="hero-content container">
+            <h1>Khám Phá Thế Giới Sản Phẩm Đẳng Cấp</h1>
+            <p>Trải nghiệm mua sắm tuyệt vời với những sản phẩm chất lượng, thiết kế độc đáo và giá cả hấp dẫn!</p>
+            <a href="#product-list" class="btn btn-primary btn-lg mt-3">Mua Sắm Ngay</a>
+        </div>
+    </div>
+    
+    <!-- Product Section -->
+    <div class="container" id="product-list">
+        <div class="col-12">
+        <div class="row justify-content-between">
+            <div class="col-md-3 col-12 text-center">
+                <p class="col-12 text-uppercase">Những sản phẩm</p>
+                <h3 class="col-12 text-success text-uppercase">TUYỆT VỜI</h3>
+               <span class="col-12 justify-content-center d-block">
+                 <img src="/img/pngwing.com.png" alt="" class="col-6" style="height: 100px; object-fit: cover;">
+               </span>
+                <span class="col-12">Chúng tôi tự hào mang đến những sản phẩm chất lượng nhất, ngon nhất vì sức khỏe người dùng</span>
+            </div>
+            <div class="col-md-3 col-12 text-center">
+                <p class="col-12 text-uppercase">hệ thông phân phối</p>
+                <h3 class="col-12 text-success text-uppercase">rộng khắp</h3>
+                 <span class="col-12 justify-content-center d-block">
+                 <img src="/img/pngwing.com (1).png" alt="" class="col-6" style="height: 100px; object-fit: cover;">
+               </span>
+                <span class="col-12">Sản phẩn của chúng tôi có mặt trên 40 quốc gia khác nhau trên thế giới</span>
+            </div>
+            <div class="col-md-3 col-12 text-center">
+                <p class="col-12 text-uppercase">Vùng nguyên liệu</p>
+                <h3 class="col-12 text-success text-uppercase">Chất lượng</h3>
+                <span class="col-12 justify-content-center d-block">
+                 <img src="/img/pngwing.com (2).png" alt="" class="col-6" style="height: 100px; object-fit: cover;">
+               </span>
+                <span class="col-12">Từ những vườn dừa uy tín sứ Việt tươi tốt, cho năng xuất cao và chất lượng</span>
+            </div>
+        </div>
+    </div>
+        
+            <!-- Product Section -->
+            <div class="container my-5">
+                <h2 class="text-center mb-5 fw-bold">Sản Phẩm Nổi Bật</h2>
+                <div class="row g-4">
+                    <!-- Product Card -->
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="ratio ratio-4x3">
+                                <img src="https://down-my.img.susercontent.com/file/vn-11134207-7r98o-lsrv2bgi0cd52b"
+                                    class="card-img-top object-fit-contain" alt="Sản Phẩm 1">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-semibold">Sản Phẩm Cao Cấp 1</h5>
+                                <p class="card-text text-muted small">
+                                    Sản phẩm với thiết kế tinh tế, phù hợp mọi phong cách.
+                                </p>
+                                <p class="fw-bold text-danger fs-5">599,000 VNĐ</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 text-center">
+                                <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lặp lại card cho các sản phẩm khác -->
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="ratio ratio-4x3">
+                                <img src="https://down-my.img.susercontent.com/file/vn-11134207-7r98o-lsrv2bgi0cd52b"
+                                    class="card-img-top object-fit-contain" alt="Sản Phẩm 2">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-semibold">Sản Phẩm Cao Cấp 2</h5>
+                                <p class="card-text text-muted small">
+                                    Chất lượng vượt trội, mang lại trải nghiệm tuyệt vời.
+                                </p>
+                                <p class="fw-bold text-danger fs-5">899,000 VNĐ</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 text-center">
+                                <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sản phẩm 3 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="ratio ratio-4x3">
+                                <img src="https://down-my.img.susercontent.com/file/vn-11134207-7r98o-lsrv2bgi0cd52b"
+                                    class="card-img-top object-fit-contain" alt="Sản Phẩm 3">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-semibold">Sản Phẩm Cao Cấp 3</h5>
+                                <p class="card-text text-muted small">
+                                    Thiết kế độc quyền, phong cách dẫn đầu xu hướng.
+                                </p>
+                                <p class="fw-bold text-danger fs-5">1,299,000 VNĐ</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 text-center">
+                                <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sản phẩm 4 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="ratio ratio-4x3">
+                                <img src="https://down-my.img.susercontent.com/file/vn-11134207-7r98o-lsrv2bgi0cd52b"
+                                    class="card-img-top object-fit-contain" alt="Sản Phẩm 4">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-semibold">Sản Phẩm Cao Cấp 4</h5>
+                                <p class="card-text text-muted small">
+                                    Thiết kế hiện đại, phong cách trẻ trung năng động.
+                                </p>
+                                <p class="fw-bold text-danger fs-5">1,599,000 VNĐ</p>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 text-center">
+                                <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container my-5">
+                <h2 class="text-center mb-5 fw-bold">Sản Phẩm Giảm Giá</h2>
+                <div class="row g-4">
+                    <!-- Product Card -->
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="ratio ratio-4x3">
+                                <img src="https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg"
+                                    class="card-img-top object-fit-contain" alt="Sản Phẩm 1">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-semibold">Sản Phẩm Cao Cấp 1</h5>
+                                <p class="card-text text-muted small">
+                                    Sản phẩm với thiết kế tinh tế, phù hợp mọi phong cách.
+                                </p>
+                                <span class="fw-bold text-secondary text-decoration-line-through">599,000 VNĐ</span>
+                                 <span class="fw-bold text-danger fs-5">399,000 VNĐ</span>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 text-center">
+                                <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lặp lại card cho các sản phẩm khác -->
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="ratio ratio-4x3">
+                                <img src="https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg"
+                                    class="card-img-top object-fit-contain" alt="Sản Phẩm 2">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-semibold">Sản Phẩm Cao Cấp 2</h5>
+                                <p class="card-text text-muted small">
+                                    Chất lượng vượt trội, mang lại trải nghiệm tuyệt vời.
+                                </p>
+                                <span class="fw-bold text-secondary text-decoration-line-through">599,000 VNĐ</span>
+                                 <span class="fw-bold text-danger fs-5">399,000 VNĐ</span>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 text-center">
+                                <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sản phẩm 3 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="ratio ratio-4x3">
+                                <img src="https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg"
+                                    class="card-img-top object-fit-contain" alt="Sản Phẩm 3">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-semibold">Sản Phẩm Cao Cấp 3</h5>
+                                <p class="card-text text-muted small">
+                                    Thiết kế độc quyền, phong cách dẫn đầu xu hướng.
+                                </p>
+                                <span class="fw-bold text-secondary text-decoration-line-through">599,000 VNĐ</span>
+                                 <span class="fw-bold text-danger fs-5">399,000 VNĐ</span>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 text-center">
+                                <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sản phẩm 4 -->
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="ratio ratio-4x3">
+                                <img src="https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg"
+                                    class="card-img-top object-fit-contain" alt="Sản Phẩm 4">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-semibold">Sản Phẩm Cao Cấp 4</h5>
+                                <p class="card-text text-muted small">
+                                    Thiết kế hiện đại, phong cách trẻ trung năng động.
+                                </p>
+                                <span class="fw-bold text-secondary text-decoration-line-through">599,000 VNĐ</span>
+                                 <span class="fw-bold text-danger fs-5">399,000 VNĐ</span>
+                            </div>
+                            <div class="card-footer bg-transparent border-0 text-center">
+                                <a href="#" class="btn btn-sm btn-primary">
+                                    <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination -->
+            <nav aria-label="Page navigation" class="d-flex justify-content-center mt-4">
+                <ul class="pagination">
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container pb-4">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+            <h5 class="fw-bold mb-3">Sản Phẩm Nổi Bật</h5>
+            <ul class="list-unstyled">
+                <li><a href="#">Nước dừa tươi nguyên chất</a></li>
+                <li><a href="#">Dừa xiêm đóng chai</a></li>
+                <li><a href="#">Sản phẩm hữu cơ</a></li>
+            </ul>
+            </div>
+            <div class="col-md-4 mb-4">
+            <h5 class="fw-bold mb-3">Địa Chỉ</h5>
+            <address>
+                123 Đường Trần Phú, Phú Thọ<br>
+                Phú Thọ, Việt Nam<br>
+                Email: <a href="mailto:contact@nuocdua247.vn">contact@nuocdua247.vn</a><br>
+                Hotline: <a href="tel:0909123456">0909 123 456</a>
+            </address>
+            </div>
+            <div class="col-md-4 mb-4">
+            <h5 class="fw-bold mb-3">Hỗ Trợ</h5>
+            <ul class="list-unstyled">
+                <li><a href="#">Hướng dẫn mua hàng</a></li>
+                <li><a href="#">Chính sách đổi trả</a></li>
+                <li><a href="#">Câu hỏi thường gặp</a></li>
+            </ul>
+            </div>
+        </div>
+        <hr class="border-light">
+        <p class="text-center mb-0">&copy; 2025 Nước Dừa 247 từ thiên nhiên. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+</body>
+</html>
