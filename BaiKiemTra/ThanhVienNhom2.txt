@@ -1,5 +1,5 @@
 Thành viên:
- Hà Văn Cường (Cap):
+ Hà Văn Cường (Trưởng nhóm):
     -> Thuyết trình, phân công việc cho từng thành viên và phát triển sản phẩm.
      
  Nguyễn Hải Đăng:
