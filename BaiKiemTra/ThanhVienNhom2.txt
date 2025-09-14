@@ -2,7 +2,7 @@ Thành viên:
  Hà Văn Cường (Cap):
     -> Thuyết trình, phân công việc cho từng thành viên và phát triển sản phẩm.
      
- Nguyễn Hải Đăng: Kỹ sư chính:
+ Nguyễn Hải Đăng:
     -> Tổng hợp thiết kế và xây dựng website.
  Lò Việt Đức:
     -> Xây dựng phần chân trang (footer) và trang liên hệ của website.
