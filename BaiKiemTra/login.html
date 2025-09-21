@@ -87,9 +87,7 @@
         }
     </style>
 </head>
-
 <body>
-
     <div class="auth-container">
         <ul class="nav nav-tabs" id="authTab" role="tablist">
             <li class="nav-item" role="presentation">
@@ -105,20 +103,29 @@
         <div class="tab-content mt-3">
             <!-- Form Đăng nhập -->
             <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
-                <div class="card">
+        <div class="card">
                     <h4 class="mb-3">Đăng nhập</h4>
                     <form id="loginForm" novalidate>
                         <div class="mb-3">
                             <label for="loginEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="loginEmail" placeholder="Nhập email của bạn"
-                                required>
-                            <div class="invalid-feedback">Vui lòng nhập một email hợp lệ.</div>
+                            <!-- CHANGED: thêm pattern chỉ nhận @gmail.com -->
+                            <input type="email" class="form-control" id="loginEmail"
+                                placeholder="Nhập email Gmail của bạn"
+                                required
+                                pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$">
+                            <div class="invalid-feedback">Vui lòng nhập email Gmail hợp lệ (ví dụ: tenban@gmail.com).</div>
                         </div>
                         <div class="mb-3">
                             <label for="loginPassword" class="form-label">Mật khẩu</label>
+                            <!-- CHANGED: thêm pattern mật khẩu mạnh -->
                             <input type="password" class="form-control" id="loginPassword"
-                                placeholder="Nhập mật khẩu của bạn" required>
-                            <div class="invalid-feedback">Vui lòng nhập mật khẩu.</div>
+                                placeholder="Nhập mật khẩu của bạn"
+                                required
+                                minlength="8" maxlength="32"
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,32}$">
+                            <div class="invalid-feedback">
+                                Mật khẩu 8–32 ký tự, có chữ hoa, chữ thường, số và ký tự đặc biệt.
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Đăng nhập</button>
                     </form>
@@ -138,15 +145,24 @@
                         </div>
                         <div class="mb-3">
                             <label for="signupEmail" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="signupEmail" placeholder="Nhập email của bạn"
-                                required>
-                            <div class="invalid-feedback">Vui lòng nhập một email hợp lệ.</div>
+                            <!-- CHANGED: thêm pattern chỉ nhận @gmail.com -->
+                            <input type="email" class="form-control" id="signupEmail"
+                                placeholder="Nhập email Gmail của bạn"
+                                required
+                                pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$">
+                <div class="invalid-feedback">Vui lòng nhập email Gmail hợp lệ (ví dụ: tenban@gmail.com).</div>
                         </div>
                         <div class="mb-3">
                             <label for="signupPassword" class="form-label">Mật khẩu</label>
+                            <!-- CHANGED: thêm pattern mật khẩu mạnh -->
                             <input type="password" class="form-control" id="signupPassword"
-                                placeholder="Nhập mật khẩu của bạn" required>
-                            <div class="invalid-feedback">Vui lòng nhập mật khẩu.</div>
+                                placeholder="Nhập mật khẩu của bạn"
+                                required
+                                minlength="8" maxlength="32"
+                                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{8,32}$">
+                            <div class="invalid-feedback">
+                                Mật khẩu 8–32 ký tự, có chữ hoa, chữ thường, số và ký tự đặc biệt.
+                            </div>
                         </div>
                         <div class="mb-3">
                             <label for="confirmPassword" class="form-label">Xác nhận mật khẩu</label>
@@ -161,15 +177,20 @@
         </div>
     </div>
 
+    <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 
     <script>
-        // JavaScript để kiểm tra và bắt lỗi khi submit form
-        // Đăng nhập
+        // ===== Đăng nhập =====
         const loginForm = document.getElementById('loginForm');
+        const loginEmail = document.getElementById('loginEmail');
+        const loginPassword = document.getElementById('loginPassword');
+
         loginForm.addEventListener('submit', function (event) {
             event.preventDefault();
+
+            // Kích hoạt HTML5 + pattern validate
             if (loginForm.checkValidity() === false) {
                 event.stopPropagation();
             } else {
@@ -178,21 +199,28 @@
             loginForm.classList.add('was-validated');
         });
 
-        // Đăng ký
+        // ===== Đăng ký =====
         const signupForm = document.getElementById('signupForm');
+        const signupPassword = document.getElementById('signupPassword');
+        const confirmPassword = document.getElementById('confirmPassword');
+
+        // Realtime: khi người dùng gõ lại, kiểm tra khớp mật khẩu
+        const validateConfirm = () => {
+            if (confirmPassword.value && signupPassword.value !== confirmPassword.value) {
+    confirmPassword.setCustomValidity('Mật khẩu xác nhận không khớp.');
+            } else {
+                confirmPassword.setCustomValidity('');
+            }
+        };
+        signupPassword.addEventListener('input', validateConfirm);
+        confirmPassword.addEventListener('input', validateConfirm);
+
         signupForm.addEventListener('submit', function (event) {
             event.preventDefault();
-            const password = document.getElementById('signupPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
+            // kiểm tra khớp lần cuối
+            validateConfirm();
 
-            // Kiểm tra mật khẩu xác nhận
-            if (password !== confirmPassword) {
-                document.getElementById('confirmPassword').setCustomValidity('Mật khẩu xác nhận không khớp.');
-            } else {
-                document.getElementById('confirmPassword').setCustomValidity('');
-            }
-
-            if (signupForm.checkValidity() === false || password !== confirmPassword) {
+            if (signupForm.checkValidity() === false) {
                 event.stopPropagation();
             } else {
                 alert('Đăng ký thành công!');
@@ -201,5 +229,4 @@
         });
     </script>
 </body>
-
 </html>
