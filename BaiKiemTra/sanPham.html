@@ -256,7 +256,7 @@
         <!-- Navbar -->
         <nav class="navbar navbar-expand-lg sticky-top">
             <div class="container">
-                <a class="navbar-brand" href="#">Siêu Thị Lộng Lẫy</a>
+                <a class="navbar-brand" href="#">Siêu Thị Dừa</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -264,23 +264,22 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/BaiKiemTra/TrangBanHang.html">Trang Chủ</a>
+                            <a class="nav-link" href="TrangBanHang.html">Trang Chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/BaiKiemTra/idec.html">Giới thiệu</a>
+                            <a class="nav-link" href="idec.html">Giới thiệu</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Sản Phẩm</a>
+                            <a class="nav-link" href="sanPham.html">Sản Phẩm</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Giỏ Hàng</a>
+                            <a class="nav-link" href="lienhe.html">Liên Hệ</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/BaiKiemTra/lienhe.html">Liên Hệ</a>
+                            <a class="nav-link" href="gioithieutv.html">Giới thiệu thành viên</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/BaiKiemTra/login.html"><i
-                                    class="bi bi-box-arrow-in-left"></i></a>
+                            <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-left"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -292,9 +291,7 @@
             <h2 class="text-center mb-4 fw-bold">Tất cả sản phẩm</h2>
 
             <!-- Danh sách sản phẩm -->
-            <div class="row g-4" id="product-list">
-                <!-- Sản phẩm sẽ render bằng JS -->
-            </div>
+            <div class="row g-4" id="product-list"></div>
 
             <!-- Phân trang -->
             <nav class="d-flex justify-content-center mt-4">
@@ -302,35 +299,210 @@
             </nav>
         </div>
 
-        <script>
-            // Fake data sản phẩm
-            const products = [
-                { name: "Nước Dừa Xiêm", oldPrice: "30.000đ", newPrice: "25.000đ" },
-                { name: "Cơm Dừa Nạo", oldPrice: "40.000đ", newPrice: "32.000đ" },
-                { name: "Bánh Dừa Nướng", oldPrice: "50.000đ", newPrice: "42.000đ" },
-                { name: "Nước Dừa Tươi", oldPrice: "25.000đ", newPrice: "20.000đ" },
-                { name: "Cơm Dừa Sấy", oldPrice: "60.000đ", newPrice: "49.000đ" },
-                { name: "Bánh Dừa Non", oldPrice: "55.000đ", newPrice: "45.000đ" },
-                { name: "Kẹo Dừa Bến Tre", oldPrice: "70.000đ", newPrice: "58.000đ" },
-                { name: "Nước Dừa Lon", oldPrice: "28.000đ", newPrice: "22.000đ" },
-                { name: "Bánh Dừa Lá", oldPrice: "65.000đ", newPrice: "55.000đ" },
-                { name: "Nước Dừa Chai", oldPrice: "32.000đ", newPrice: "26.000đ" },
-                { name: "Cơm Dừa Non", oldPrice: "45.000đ", newPrice: "37.000đ" },
-                { name: "Nước Dừa Xiêm", oldPrice: "30.000đ", newPrice: "25.000đ" },
-                { name: "Cơm Dừa Nạo", oldPrice: "40.000đ", newPrice: "32.000đ" },
-                { name: "Bánh Dừa Nướng", oldPrice: "50.000đ", newPrice: "42.000đ" },
-                { name: "Nước Dừa Tươi", oldPrice: "25.000đ", newPrice: "20.000đ" },
-                { name: "Cơm Dừa Sấy", oldPrice: "60.000đ", newPrice: "49.000đ" },
-                { name: "Bánh Dừa Non", oldPrice: "55.000đ", newPrice: "45.000đ" },
-                { name: "Kẹo Dừa Bến Tre", oldPrice: "70.000đ", newPrice: "58.000đ" },
-                { name: "Nước Dừa Lon", oldPrice: "28.000đ", newPrice: "22.000đ" },
-                { name: "Bánh Dừa Lá", oldPrice: "65.000đ", newPrice: "55.000đ" },
-                { name: "Nước Dừa Chai", oldPrice: "32.000đ", newPrice: "26.000đ" },
-                { name: "Cơm Dừa Non", oldPrice: "45.000đ", newPrice: "37.000đ" },
-                { name: "Cơm Dừa Non", oldPrice: "45.000đ", newPrice: "37.000đ" },
-                { name: "Bánh Dừa Nướng Mix", oldPrice: "80.000đ", newPrice: "68.000đ" }
+        <!-- Modal chi tiết sản phẩm -->
+        <div class="modal fade" id="productModal" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold" id="productModalLabel">Chi tiết sản phẩm</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <!-- Ảnh sản phẩm -->
+                            <div class="col-md-5 text-center">
+                                <img id="modalImage" src="" class="img-fluid rounded mb-3 border" alt="">
+                                <div id="modalGallery" class="d-flex justify-content-center gap-2"></div>
+                            </div>
+                            <!-- Thông tin -->
+                            <div class="col-md-7">
+                                <h4 id="modalName"></h4>
+                                <p id="modalDesc" class="text-muted"></p>
+                                <p>
+                                    <del id="modalOldPrice" class="text-secondary"></del>
+                                    <span id="modalNewPrice" class="fw-bold text-danger ms-2"></span>
+                                </p>
+                                <div class="mt-4">
+                                    <button id="btnBuyNow" class="btn btn-danger me-2">⚡ Mua Ngay</button>
+                                    <button id="btnAddCart" class="btn btn-outline-primary">🛒 Thêm vào giỏ</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <script>
+            // Fake data sản phẩm (15 sản phẩm, giống mẫu đầu tiên)
+            const products = [
+                {
+                    name: "Nước Dừa Xiêm",
+                    oldPrice: "30.000đ",
+                    newPrice: "25.000đ",
+                    img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                    desc: "Nước dừa xiêm mát lạnh, bổ dưỡng.",
+                    gallery: [
+                        "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                        "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
+                    ]
+                },
+                {
+                    name: "Nước Dừa Xiêm 2",
+                    oldPrice: "30.000đ",
+                    newPrice: "25.000đ",
+                    img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                    desc: "Nước dừa xiêm mát lạnh, bổ dưỡng.",
+                    gallery: [
+                        "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                        "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
+                    ]
+                },
+                {
+                    name: "Nước Dừa Xiêm 3",
+                    oldPrice: "30.000đ",
+                    newPrice: "25.000đ",
+                    img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                    desc: "Nước dừa xiêm mát lạnh, bổ dưỡng.",
+                    gallery: [
+                        "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                        "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
+                    ]
+                },
+                {
+                    name: "Nước Dừa Xiêm 4",
+                    oldPrice: "30.000đ",
+                    newPrice: "25.000đ",
+                    img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                    desc: "Nước dừa xiêm mát lạnh, bổ dưỡng.",
+                    gallery: [
+                        "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                        "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
+                    ]
+                },
+                {
+                    name: "Nước Dừa Xiêm 5",
+                    oldPrice: "30.000đ",
+                    newPrice: "25.000đ",
+                    img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                    desc: "Nước dừa xiêm mát lạnh, bổ dưỡng.",
+                    gallery: [
+                        "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                        "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
+                    ]
+                },
+                {
+                    name: "Nước Dừa Xiêm 6",
+                    oldPrice: "30.000đ",
+                    newPrice: "25.000đ",
+                    img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                    desc: "Nước dừa xiêm mát lạnh, bổ dưỡng.",
+                    gallery: [
+                        "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                        "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
+                    ]
+                },
+                {
+                    name: "Nước Dừa Xiêm 7",
+                    oldPrice: "30.000đ",
+                    newPrice: "25.000đ",
+                    img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                    desc: "Nước dừa xiêm mát lạnh, bổ dưỡng.",
+                    gallery: [
+                        "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                        "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
+                    ]
+                },
+                {
+                    name: "Nước Dừa Xiêm 8",
+                    oldPrice: "30.000đ",
+                    newPrice: "25.000đ",
+                    img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                    desc: "Nước dừa xiêm mát lạnh, bổ dưỡng.",
+                    gallery: [
+                        "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                        "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
+                    ]
+                },
+                {
+                    name: "Nước Dừa Xiêm 9",
+                    oldPrice: "30.000đ",
+                    newPrice: "25.000đ",
+                    img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                    desc: "Nước dừa xiêm mát lạnh, bổ dưỡng.",
+                    gallery: [
+                        "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                        "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
+                    ]
+                },
+                {
+                    name: "Nước Dừa Xiêm 10",
+                    oldPrice: "30.000đ",
+                    newPrice: "25.000đ",
+                    img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                    desc: "Nước dừa xiêm mát lạnh, bổ dưỡng.",
+                    gallery: [
+                        "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                        "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
+                    ]
+                },
+                {
+                    name: "Nước Dừa Xiêm 11",
+                    oldPrice: "30.000đ",
+                    newPrice: "25.000đ",
+                    img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                    desc: "Nước dừa xiêm mát lạnh, bổ dưỡng.",
+                    gallery: [
+                        "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                        "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
+                    ]
+                },
+                {
+                    name: "Nước Dừa Xiêm 12",
+                    oldPrice: "30.000đ",
+                    newPrice: "25.000đ",
+                    img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                    desc: "Nước dừa xiêm mát lạnh, bổ dưỡng.",
+                    gallery: [
+                        "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                        "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
+                    ]
+                },
+                {
+                    name: "Nước Dừa Xiêm 13",
+                    oldPrice: "30.000đ",
+                    newPrice: "25.000đ",
+                    img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                    desc: "Nước dừa xiêm mát lạnh, bổ dưỡng.",
+                    gallery: [
+                        "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                        "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
+                    ]
+                },
+                {
+                    name: "Nước Dừa Xiêm 14",
+                    oldPrice: "30.000đ",
+                    newPrice: "25.000đ",
+                    img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                    desc: "Nước dừa xiêm mát lạnh, bổ dưỡng.",
+                    gallery: [
+                        "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                        "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
+                    ]
+                },
+                {
+                    name: "Nước Dừa Xiêm 15",
+                    oldPrice: "30.000đ",
+                    newPrice: "25.000đ",
+                    img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                    desc: "Nước dừa xiêm mát lạnh, bổ dưỡng.",
+                    gallery: [
+                        "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
+                        "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
+                    ]
+                }
             ];
+
 
             const itemsPerPage = 8;
             let currentPage = 1;
@@ -344,23 +516,60 @@
                 const end = start + itemsPerPage;
                 const pageProducts = products.slice(start, end);
 
-                pageProducts.forEach(p => {
+                pageProducts.forEach((p) => {
                     const col = document.createElement('div');
                     col.className = "col-lg-3 col-md-4 col-sm-6";
                     col.innerHTML = `
-          <div class="card product-card h-100">
-            <img src="https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg" class="card-img-top" alt="${p.name}">
-            <div class="card-body text-center">
-              <h5 class="card-title">${p.name}</h5>
-              <p class="card-text text-muted">
-                <del>${p.oldPrice}</del> 
-                <span class="fw-bold text-danger">${p.newPrice}</span>
-              </p>
-            </div>
-          </div>
-        `;
+                  <div class="card product-card h-100 shadow-sm" style="cursor:pointer;">
+                    <img src="${p.img}" class="card-img-top" alt="${p.name}">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">${p.name}</h5>
+                      <p class="card-text text-muted">
+                        <del>${p.oldPrice}</del> 
+                        <span class="fw-bold text-danger">${p.newPrice}</span>
+                      </p>
+                    </div>
+                  </div>
+                `;
+
+                    // Click mở chi tiết
+                    col.querySelector('.product-card').addEventListener('click', () => {
+                        showProductDetail(p);
+                    });
+
                     productList.appendChild(col);
                 });
+            }
+
+            // Hiển thị chi tiết sản phẩm trong modal
+            function showProductDetail(product) {
+                document.getElementById("modalImage").src = product.img;
+                document.getElementById("modalName").innerText = product.name;
+                document.getElementById("modalDesc").innerText = product.desc;
+                document.getElementById("modalOldPrice").innerText = product.oldPrice;
+                document.getElementById("modalNewPrice").innerText = product.newPrice;
+
+                // Render gallery
+                const galleryDiv = document.getElementById("modalGallery");
+                galleryDiv.innerHTML = "";
+                product.gallery.forEach(imgUrl => {
+                    const img = document.createElement("img");
+                    img.src = imgUrl;
+                    img.className = "img-thumbnail";
+                    img.style.width = "60px";
+                    img.style.cursor = "pointer";
+                    img.addEventListener("click", () => {
+                        document.getElementById("modalImage").src = imgUrl;
+                    });
+                    galleryDiv.appendChild(img);
+                });
+
+                // Gắn sự kiện cho nút
+                document.getElementById("btnBuyNow").onclick = () => alert("✅ Đã mua " + product.name);
+                document.getElementById("btnAddCart").onclick = () => alert("🛒 Đã thêm vào giỏ: " + product.name);
+
+                const modal = new bootstrap.Modal(document.getElementById('productModal'));
+                modal.show();
             }
 
             // Render phân trang
@@ -388,11 +597,77 @@
             renderProducts(currentPage);
             renderPagination();
         </script>
-
-
     </main>
-    <footer>
-        <!-- place footer here -->
+
+
+    <!-- footer-->
+    <footer class="bg-dark text-white py-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-3 mb-3">
+                    <h5 class="fw-bold mb-3">Thông tin liên hệ</h5>
+                    <ul class="list-unstyled">
+                        <li>Mua hàng: 1800 2097 (7h30 - 22h00)</li>
+                        <li>Khách hàng: 1800 2093 (8h00 - 21h30)</li>
+                        <li>Phương thức thanh toán</li>
+                        <li class="mt-2">
+                            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxEQEhUQEhIVFhUVFhcVFxYWGB0VFRUXFRcXHRYWFxUYHSggGBolHRUVITEhJSkrLi4uGB8zODMtNygtLisBCgoKBQUFDgUFDisZExkrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrK//AABEIAKgBLAMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAFAAQGBwgDAgH/xABMEAABAgMDBQ4DBQUHAwUBAAABAAIDBBEFITEGEkFRcQcTFBUiMjNSYXKBkbHBgqHRCCNCYpI0U3Oy4RdUY3STs/EkNcJDg6LS0yX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AvFNrR6J+xNOOW9V3yXl1oCKN7AILrqnQgEIhYfSHuH1avfEzusPJeocHgx3xxzq8mg7b9PdQGEGt7nN2H1XXjlvVd8lziM4Vym8nNuvvx2IBSkNk9E3x/mKY8TO6w8iujJwQBvRBJbpGF9/ugLKKx+c7afVFuOm9U/JceKXO5WcL7/O9AxlOezvN9QpQgwsx0PllwIbyqd2/2XXjlvVd8kHa2eiO0eqAIvEmhMDegCCb6nC5c+JndYeRQerAxf8AD/5IwhEMcF53Kz9V1M3btXvjlvVd8kDS2uk+Ee6Yoq+WMwd8aaDm0PZ/yvPEzusPmgJyPRs7rfRdX4HYhjbSbDG9lpJZya66XL6bXabs033aNKAKndl9K3x9CnIsZ3WHkV9bImCd9JBDdAxvu90BlDLd5je97FfOOW9V3yXiJF4VyG8nN5VT5Uu2oBKN2FzHd72Cb8TO6w8ivcOLwbkO5VeVd5adiAuo3afSv2j0CIcct6rvkuT5ExjvoIAdfQ4il3sgFFS1mAQbiZ3WHkV244aLs03bED2e6N/dPooyi7rREUb2GkF3JqdFdK58TO6w8kHOxek+E+oR5B4cuZY7445w5tB27di6cct6rvkg529iz4vZCkViDhV7eTma7612bF54md1h5FA9sfohtPqnqEsmxLjeiCSL6jtv0r1xy3qn5IAycWf0jNqJ8TQ+s/zH0XmJINhAxGlxLbxWlPGgCAoh1udGO8PRyZ8cRNTfI/VdIEYzJzH0AHK5NxqLtNbuUUAtGbB5rto9F64mh9Z/mPog2VNvwrHgmM81adBvc92hraUx7UEqJUUnLRgRY72w4sN7mgEhjg4gUAvobr1njLLdGn7TcQ+IYcHRBhktZ2FxxedvhRTb7O1j766bjuzg0CHDBGkuLnOvI0Brf1BBZ6lcDmt2D0TDiaH1n+Y+iautR7TmgNoLsDo8UBab6N/dd6FRhEW2k95DCG0cc00BrR1xpfjenXE0PrP8x9EDGx+lGwqQIVGlRLjfGEki6jrxfsAUct7dFlpF7YczEaxzhUDe4jqja0FBIrf/AAfF7IQgH9q1jxummi3N5ubBi31xryDqCX9o1gf31/8Aoxf/AMkE9sXo/iKfqsxutWTC5MKazm41dBi1rpwYPRff7ZLN/vDf9GN/9UEknekf3j6rlDxG0JhZmWNjzZBbPww9xva87zyjoaIrRW8qUCyodM4OcdIvBHogJppanRO8PUIbxxE1N8j9V7hTroxEJwADsaY3X6SdSAYiVhc93d9wnPE0PrP8x9FzjwhLDOZUknNOdfdjopqQFkEt3nt7vuV544iameR+q7wIQmRnvqCDm8m4Ux011oBCkdmdE3Z7lN+JofWf5j6JtFnXQSYTQCG3Cta3330I1oDaib8TtT/jiJqb5H6p3xRDN+c6/tH0QCpLpGd4eqk6FxLObDBiAuJaM4VpSowrQYJtxxE1N8j9UD22+j+Ie6BIpBjmYO9voBzuTcbttda78TQ+s/zH0Qc7Bwf4e6LIPHPBqBl+djnX4YUpTWuXHETUzyP1QeLY6U7B6JkjEGUEwN9eSCbuTQC67SCvfE0PrP8AMfRASTa0eifsQPh8XrldZWZe97WucS0mhB0oGSIWH0h7h9Wp3NulIPSuhM77g31KHRrXlKAy8eDnF1OS9ucRQ3UrfgEEjWZN3LKR03Pul2n7qW5AGgvNC93oOyhV7Gei9cql/wCyK0J2ZjRXPhMY+M9xcXFzqPcSDmgX460FXycq+K9sKG0ue8hrWjEk6FrPczydbZ0hCgCheS58Vw/FEcaE+ADWjsaEKyVyEs2xmZ8R7HRSL40Yhp7QwHAbF2j5ayIiGHCnIQApQB11+PzqgnKisfnO2n1X2DazogzmRg4a2kOHmEehScMgEtBJAJPaUAKU57O831ClCZx5SG1rnBoBAJB1EC4oNw6L1ygL2z0R2j1Wdd3P9pg/wz6q+5GM6K8Mec5pBuOFypP7RUFrJuXDQB90cO8EFSpL6FfOR+RtnxpGWixJZjnvhNc5xF5JF5QUKktVWVuc2S9lXScMmp0LrNbllkRBm8Ea3tYS0+YQZRCk2SWXU9ZjhvMUmH+KC8l0MjTQfhN+Ip21U5yx3IWs3x8i8ktJpBea1A0Nfr249iqKLDc1xa4EOaSCCKEEGhBGg1QaWyRyog2jC3yGaOFz2E8pp9x2qT2X0rfH0Ky5kZlC6z5qHMC9oIERmh7DzhTXpC1gHQnQBMQQKOa1zXDU6nsUBZDLd5je97FDeHReuU7s5xjOLYnKAFQDrqgGI3YXMd3vYJzwCF1Ah1pPMJwbDOaCKkDXUoDSjdp9K/aPQL5w+L1yisnLsiMD3tBccSdN6ACVLWYBN+AQuoEEdPROuUB2e6N/dPooynkvNPe5rXOJBIBGsHQjHAIXUCAVYvSfCfUI8hloQhCbnQxmmoFRqQ3h0XrlA9t7FnxeyFItZg37O3zlUpSuita+ifcAhdQIOdj9ENp9U9QKejOhvLGEtaALh2pvw+L1ygaucBeSKKostd1SJnmDIOzQ2oMf8Tj/AIeodulS77QGVrpeAyzoTqPmAXRSDQiCDTNu65BGxrhpWe6oHE7PRYzi+LEc9xNSXEuNTtXBjyDUEgjAi4rykglVhZfz8pRrYpewfgicsU7Cbx4I1O7sVpOYYcLe4Gdi5gJd4FxNPBV2kgd2haUaYcXxor4jia1e4uv8U1C+JICFk2zMSrg+BFewjUbj2FuBWjNyvdKZaY4NHAhzLG4DmxWjFzdR1hZoloDoj2sY0uc4hrQMSTgFfWQOQMKQaI0ZofMm+pvEL8rO3QTigt6b5j+670Ki9V1lB94zvN9QpQgAWP0o2H0VNfaP/a5f+E7+YK97Z6I7R6rOu7n+0wf4Z9UFaLTGQZ//AJ0p/BZ6LM617uaf9qkv8vD9EBexOj8Sn6AW0PvPhHumFEHedP3j+8fVUfu22M2FHhTbBTfgWvphnspQntIP/wAFpCR6NndHoqr+0gRwGXGnhI8t6iV9kGeFpjcitMx7FYHGpgl0LYGuGaPBpCzPRXx9nlv/AE7/APMOp/pNQTyqJ2EeW7u+4Ty27WgycB8zHeGQ4Yq4n5ADS4mgA0rNOX+6fN2m50NhMCWBObDaaOeMKxXjGt/JF1+mlUGhbYy2s2UJbHnILXDFgdnvG1jKuHkofa+6rZD3jNmSRSld6iUxOtlVm1fEGlZDLezY5oychVOh5MLw+8AVh2UQYTCMCMfErFFEfyXyumrPcDCeTDryoTjWG7XQfhPaPmg2GoPatqwJYZ8eKyG0uzQXmgJvNK67j5JhktlFBtCAI8K7Q9h5zHaQfqjW6dYPD7MjwQKxGs32Hrz4XKAHa4ZzfiQB5TLWzQ9pM7AoCPxhTWx7clZxrnS0eHFa00cWOzgCdBosWqxdxS097m3y5wjMu1Zzfc+yDRtt9H8Q90Bqn9iD7z4T7I+gE2Dg/wAPddrYtuWk2h8zGZCa45oL3ZoJpWgrjcm9vYs+L2Wf9261M+YhywN0Jmc7VnPw8QAfNBbFqZb2Y6ISJ2ARQYPC72basCZaXwIrYjQc0uYc4BwAJFRpoR5rKy13ub2DwCzpeXIo/Mz4mvfInKcDTGlc3Y0IM57rNq8KtWaeDVrH7y3UBBAaadhcHHxUPRXKknhs1XHhEav+o5CkCSSSQJJJJAkkkkFn7glkQ4s66Zi0pLsq2uGe64HaBerxiScQkkMNCSQewqntwh4zJlumrD4UIWgIHNbsHogAwJSI1zXFpABBJ1AG8ozw+F1wvc50b+670KjCA5PxmxWFjCHOqDQY3FZ83eILmTUAOBH3R9Velj9KNh9FTX2j/wBrl/4R/mCCoVrbc3nIbbLkgXAHeIfoslK68ld0Sz5eTl4ER7w+HDa1wDKioF99UFt2hCdFfnQxnCgFRrFU24DF6hUXs3dfsljM10SJWpPR/wBV1j7tdkNFzozjqEP6lBO5eaY1rWucAQACNRAvWfd33KiHNzUOVhOzmSwdnEYGI+lR25oA/UQueV+67FmM9kpDMFriavcaxKGuGhqrFxJNTeTeScSdKD4tK7j1kPlZGA97c0PzopJwo+ubXwLVS25tki+1JtsKh3phD4ztAaDzdpw81qiehBkAtaKBoAA1AEUQUT9oXKUxZiFIQ3fdwmCK+n4oj65te62hHfKqSFDL3BrRUuIAA0k4ALR9r5DyE3FdMRoJdEfTOdnuFc1oaLgaYNCcZN7nFlsjNitl+VDo9tXuIDgbiQTf4oI3kduQshQ2xZyEYsVwqWHmMroppKsGQyakIbDDiysEVNwcwVpTX5qVoHbvPHd9yggmWu5bZszDc+UzYEcAloafu3nquGiusLO8eE5jnMcKOaS0g4gg0IPitZLNm6FCDbRmgBQb5Xxc1pPzJQFNyO1nQJ9kIE5sesMjRWlWnbcR4rUQnoXXCyBkY4i0JOn96gfOK2q06/E7SgzdujWK2StGYgsA3su3yFTDe4nKAHY2pb8KE2BaJlpmDHBpvb2k7PxfIlWnu42NnQ4U60XsO9PP5XXsJOoOqPjVOINiWRySIrhmsc2oJw5VCEW4fC64UC3N7a4XY8Ak1fCO8u0mrKgE9pFD4oygKWs7fAHM5QaHF1NGH0KyVlNaRmpqNMVrnvNO6Lm/IBaIy7trgdlzcQGjntbCZoOdEqKjtAJPgsxoJTuZWM2ctGBDf0bHb7Erhmw76HsLs1vxLV/DoXXCovcPsfMhRZxwviHe2d1nOIPa40+FWigzdukWeZa05uE7HfTEu/xgIg+Two0re+0ZYxhzcGcA5MaHvbrvxwjiT2tc0fAVUKBJJJIEkkkgSSSSCbbktttlZ5rHuDWRxvRJuAJPIJOgVWmm2qxozSHXXXUpd4rGAVr5A7pwY1stOk0FGsjY3aA/6oL4fabHgsAdV3JFaUq64Vv7U14nia2+Z+iY2fED3Q3NNQXNIIwIJF4UrQBYMq6XO+PoQLuTeb9tFRv2hZpsSblyARSEce8NRV/Wz0R2j1Wdt3P9pg/wz6oK0CSS03kDkPZsazpSLFlITnvgMc5xBq4kXk3oMyJLUVq5C2Y19BJwgKDQe3tTMZFWb/dIXkfqgzUxhJoASdQvU6yP3KrQnyHvhmXgXExIozXOH+GzFx7TQdq0dYlgSkBjHQpaCx2aOU1jQ7DrUqiz8DsQRfJWSk7NgCXl4bw3FziAXxHaXPNbz6ItFnWxhvTQQXYE0Auv0E6kGCc2e8NiBxNAM4knAANNSUHm04LZWG6NHjQocNuL3uLQNQvF5OrSqztDdrgy73CUgGNcQIjyYbOwhlM5w25pUA3S8totqzTjnES8NxbBh6ABdnkaXOxrorRRSWl3xXiHDaXOcaBovJPYgsWd3b7Wic3g8LuQ6/7jnIPObqNsRTV015QoTfRiM2RuQTERodMRWwq/hAznDacFKrL3C5aIC503FuNKBjRoHagqyLl3absZyL4EN/lAQObmokZ5iRHue915c41cdpK0RL7hVmjnxI7tjg32KpHLyyYUlPzErBzt7hOAbnGrqFjTedpKBrki/NnpRx0TMA+UVq1gbIiG+rb+0/RZLyZ/bJb/ADEH/catntwQQ7KnJYzMpGgPLaOhnWaEXtIFMQQD4LKMWEWOLXCjmkgg4gg0IW2Z7o390+iytuq2Pwafe5ooyMN9Gqp5421v+JBKdwK0nOiR5CvSARmVuFWcl/iQ5n6Srq4nia2eZ+iyzkHbPArQlpmtGtiAPrhmP5LydgcT4LYQNUGe936edDfAkc4Gg394FcTnMh36+ku7QqkgwnPcGNFXOIaBrJNAFIt0W2uHWlMzANWmIWMNajMh8hpGoENzviKfblNj8Jn2OIqyCN8dqqOaPO/wQaAyZyd3mVgQoVA1kNrTW4lwHKcQK3k1RPieJrb5n6J/Y/RDafVPkFcbp8ibSkIkEMG+MpFhnTnMrd4tLh4rMhC1oqK3WclDKRzNQ2/cxiSaYMiHEbDj5oK/SX2i+IEkkkgSSSSBI/kNk860Z2DKjmudnRDqhtvcfbxCAhaV3EsijIy3CozaR5gA0OLIeLW36TWpQTZtkthNzmuPIFQLqcm8D5Lxxy7qDzKKTfMf3XehUYQFGTRmDvRAAN9RjcqL+0HKiFNwACTWEce8rtsfpRsPoqa+0f8Atkv/AAj/ADBBUK1Rue2q5tmSbQ0XQGD5LK60xkH/ANulP4LPRBNYcsJgb44lpwoMLtu1euJm9c/JdbF6P4j7J+gCm0nQ/uw0EN5IJxNLkuN3G7NF92nSmU70j+8fVcoeI2hAY4lb1z8kDy4lOD2fNRWOJcILx+oZp+TipgheU8oI8rHgnCJDLK6s66vhWqDGCtT7P1lw485Gc/nQ4QLDqLnUJ8lWc/KPgxHwXijmOLHA6C00KK5H5TRrMmWzMGhIuc0817Ti0/VBrLiZvWPyXOJF4NyG8qvKv8tGxRGxt2iyYzQYsR8u/S17HOFex0MEEbaJtlDup2SCHMmDEo2mbDhvJxOlzQPmgmUa3ixpe4NDWguJJoABiVlDKy1+Gzkea0RIjnDu4N+QCkmXG6NFn2mBCaYUA84V5cTVnEYD8o+ahs7IxILg2I3NcWtfQ40cKtrtFD4oHuSTM6elG65mAPOK1azNsOF2aLtqyfkb/wBwk/8ANQP91i08/E7SgJC0TF+7LQA/k1GiqrzdzyUD5ETTKufLuqbvwOud4C4+Cm0j0jO8EbteQbMwIkB4BbEY5hBw5QQYpotFS+X7xYHCrt8bA3nOryt+6IOprziHbFQNr2e6WjxZd4o6G9zDW6uabjTtFCuwtqJwMyP4DHEfxDC2mzA+CAatC7heSobJGafUOjuJF34G3DwOKoSy5F0xGhwGAl0R7WCl5vK2XY1ntloEKXYAGw2NYKYXC8+dUDR80Zc70ACBfU433rzxy7qjzK42x0p2D0TJBIuLYXV+Z+qG5R5PS0xLRYMSHVrmkYm7URfiNCOptaPRP2IMl5Y5HTFnRCHAugk8iKBUEanUwKjYbW4LWMWG14LXAOBxDhUHwK+5O2BKMilzZaEDmk1zAb6twrggzzk9ub2nPDOhS5aw/jifdtOzOxRi0Nxq0oQF8FxIrmh9PmRRacog1vc5uw+qDJVsZPTUm7NjwXs7aVadjhchrGEmgFScALyfBaxiwmvGa5rXDU4AjyKJ2HYMoxjYjZaEHX8oMbW5xpfS5BTu5JuWPivbOz0MthNo6HCdc6IdDnDQ0fNW8+fitJAdcCQLhgMNCkCisY8p20+qB3Cnoj3BrnVDiARQXgmhFwRXiyF1fmfqgUpz2d5vqFKEA2dl2wW58MZrhQVxx2rP+7zFfEmoBcSaQjo7RqC0JbPRHaPVRqLLQ3mr2Mcdbmh3qgykIbtR8lrHc4s+G6y5Mlt5gMredW1PbCs2Ac+sGF+H8De3sR+GwNAa0AAXAAUA2AIA87GdBdmQzmtoDSgN5xxTfjKL1/k36LpbXSfCPdMEB+BJQ3tD3Nq5wBJqRUkX3Ar26zYQvzcO0/VdZHo2d0ei6vwOwoI9xlG6/wAh9F2lZl8V4Y91WnEUAwBOIFdCHBO7L6Vvj6FBEt0/cpZaH/UylIcyBRwJ5EcAXBx/C8AUB2A4VFAWzk/NSbzDmID4ZHWaaHtDsCFs6iE5RwWPhta9rXDOwcARgdBQY0Tuz7NjTDgyDCfEcTQBjS6/wWl3ZPyZNTLQq9wKT5NSkOGx29w2M5X4Whugaggqjc33G3Nc2atIC6jmS4vv0GKRqu5PnqUF3ZoVLWmGtBoBDA7Pu2n1JWqaKK2vJwnRnl0NhNReWgnAaSEGXslmuE7KkAgiYgnDVEatgCzoRvzfmfqoqJGCLxChgjSGNr6KatwCBjHkobGl7W0c0Eg1JoRhiUL4yi9f5N+iNz3Rv7p9FGUFH7tdlGHOCapdHbUkCnLbca00kUVdKz93C1g+NClWm6E0vd2OdhfsVYILC3FrLMSd4RS6XbnA0ry3XNx04lX9xlG6/wAm/RQjcssHglmwojhR8yXRTdQ5twhg+FT8SliA5Jy7YzQ+IKuNanDDDBd+LYXV+Z+q82P0Q2n1T1BFN8drPmu8g4mI0EnFc+CxOo79JXeTgua9rnNIAN5IoBtJwQH97GoeSH2yM1gpdyhhdoKd8Lh/vGfqCZ2q8RGBrCHHOBo280ob6DaEAffHaz5otYgqHVvvGN+hDOCxOo79JROyXCGHB/Jqbs7k12VQE97GoeSAWm4iK4AkYYXaAjXC4f7xn6gg9oQnPiFzWlzTShAqDcNIQM98drPmpNBhjNFwwGjsUc4LE6jv0lH4U1DAAL2ggAG8IPU0wBjiAOadHYo3vjtZ81IJiZY5jgHtJLSAAQSSRcAgfBYnUd+koHFkkmIATUUON6Ob2NQ8kEs6G5jw54LRQ3uFB5lF+Fw+uz9QQMLc5OZS7HC7UhW+O1nzRS1jvmbvfLpWubyqVpStMMCh/BYnUd+koC9jisOpvvON6fb2NQ8kPsyI2GzNeQ01Jo40NNdCnfC4fXb+oIAE48h7gCecdPaubHmovOI0rvMwHue5wa4gkkEAkEE4grwyViVHIdjqKCSb2NQ8k1tJoENxAobvULrwuH+8Z+oLhPxmvhua1wcTgAak3jQEALfDrPmiFi3udW+7TfpCZcFidR36Sn1lAw3EvGaCKAu5IJrhegMb2NQ8kGto0eKXcnRdpKKcLh/vGfqCGWq0xHAsGcAKVbyhWpuqEA7fHaz5o/ZrQYbSRU/1KB8FidR36SjUjHayG1rnBpGIJoRfpBQPN7GoeSi7ohqbzjrUj4XD/eM/UFH3SsSp5Dv0lADtLLGUkYzIczGLCQH4EgtqRW7YUNyk3abPgw3CVaY0WnJ5ObDB0Ek3nYq83dobmzsHOBH/AE4xFP8A1HqtUDq1LRiTMZ8eK7OfEcXOPafZEcjrAdaE1Dlxza50Q9WG0jOO28AdrgvuTuSM7PvDJeA9w0vIIY3tLqelSr9yLyJFmQcxrHOiOoYkTNILiMANTRU0G3WgmGT0JoaWAcloa1o0AAEADsuRfexqHkhVkne87P5NaUzrq0rhXaiHC4f7xn6ggD2qSIhANLhhdoTPfHaz5p7aMNz3lzAXCgvaKjzCa8FidR36SglCbWj0b9i48bQvzeS5xp5kVphtrV1wqKBAFRCw+kPdPq1eeKYv5fNdpWCZc58TAjNuvNTf7FAZQa3ec3YfVOuNoX5vJNpppmSDDwbca3YoBSkNk9E3x/mKGcUxfy+f9E8l5tsFohPrnNrWgqLzXHYQgJqKx+c7afVG+Nof5vJMHWZEcS4UoTUX6D4IGspz2d5vqFKECZZ0RhDzSjSHG/Q28+ifcbQ/zeSD7bPRHaPVAEZmZlsdu9srnG++4XJpxTF/L5/0Qd7Axf8AD/5IwhEoODV3z8VKUvwrX1CccbQ/zeSAfbXSfCPdMUTmYDpg74ylKUvuNR/yuXFMX8vmgMSPRs7o9F1fgdiYQrQZDAY6tWjNNBdUXL6bVhm6++7BABTuy+lb4+hXTimL+Xz/AKLpAk3wXCI6ma3GhqbxTDxQG0Mt3mN73sV042h/m8lwmogmAGw8Qamt12HugEI3YXMd3vYJlxTF/L5/0TmViiXBZExJzhS+7D2QFlG7T6V+0egRXjaF+byTKPJviuMRtM12FTQ6vZANKlrMAgPFMX8vn/REBasMXcryQcrbsmXjsc6LAhRHBhAc9jXOAvNASKi9RaHYco29stAH/ttr50Uri2gyIDDbWrgWiooKm5MuKYv5fNArDFIlBhmm7yR6iDS0Ay7t8fSlKXXmp/4TvjaF+byQNrexZsd7IUis0OE03v8ADWtbsaU9Fw4pi/l80BKx+iG0+qeoXLzLYDRDfWoqbrxfeuvG0L83kgApxZ/SM2pJIJKh1udGO8PRySSAGjNg8120ei+JICqjtq9K7w/lCSSBmpXA5rdg9F8SQeZvo3913oVGEkkD2x+lGw+ikCSSATb/AOD4vZCEkkB6xej+Ip+kkgjE70j+8fVcmYjaEkkEsTS1Oid4eoSSQR1ErC57u77hJJAbQS3ee3u+5XxJAOUiszom7D6lJJA7UTdidq+JIO0l0jO8PVSdJJAPtvo/iHugSSSAvYP4/D3RZJJBH7Y6U7B6Jkkkg//Z"
+                                alt="Apple Pay" class="me-2" style="width: 40px; height: 40px;">
+                            <img src="data:image/png;base64,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"
+                                alt="VNPAY" class="me-2" style="width: 40px; height: 40px;">
+                            <img src="data:image/png;base64,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"
+                                alt="MoMo" class="me-2" style="width: 40px; height: 40px;">
+                            <img src="data:image/png;base64,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"
+                                alt="ZaloPay" class="me-2" style="width: 40px; height: 40px;">
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <h5 class="fw-bold mb-3">Địa chỉ</h5>
+                    <ul class="list-unstyled">
+                        <li>Mua hàng trực tuyến Online</li>
+                        <li>Mua hàng tại cửa hàng Online</li>
+                        <li>Chính sách bảo hành</li>
+                        <li>Tra cứu đơn hàng</li>
+                        <li>Chính sách bảo hành</li>
+                        <li>Quy định đổi trả đổi trả</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <h5 class="fw-bold mb-3">Dịch vụ bán hàng và thông tin khác</h5>
+                    <ul class="list-unstyled">
+                        <li>Khách hàng doanh nghiệp (B2B)</li>
+                        <li>Ưu đãi thanh toán</li>
+                        <li>Chính sách bảo mật thông tin</li>
+                        <li>Liên hệ hỗ trợ kinh doanh</li>
+                        <li>Tuyển dụng</li>
+                        <li>Tài trợ trực tuyến</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-md-3 mb-3">
+                    <h5 class="fw-bold mb-3">Kết nối với chúng tôi</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            <a href="#" class="text-white me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="text-white me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="text-white me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" class="text-white me-2" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="#" class="text-white" data-bs-toggle="tooltip" data-bs-placement="top"
+                                title="Zalo"><i class="fab fa-whatsapp"></i></a>
+                        </li>
+                    </ul>
+                    <p class="mt-3">Website thân thiện</p>
+                    <p>Hỗ trợ kinh doanh trực tuyến</p>
+                    <p class="text-warning">nuodua.vui</p>
+                </div>
+            </div>
+            <hr class="border-light opacity-50">
+            <p class="text-center mb-0 text-white-50">© 2025 nuocdua247. All rights reserved.</p>
+        </div>
     </footer>
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

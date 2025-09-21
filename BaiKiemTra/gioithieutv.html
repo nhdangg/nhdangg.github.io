@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu Thành Viên - Siêu Thị Lộng Lẫy</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Font Awesome cho biểu tượng -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e0eafc 0%, #cfdef3 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background: linear-gradient(90deg, #1e8a35 0%, #3b82f6 100%);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff !important;
+            transition: color 0.3s;
+        }
+
+        .navbar-brand:hover {
+            color: #facc15 !important;
+        }
+
+        .nav-link {
+            color: #fff !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #facc15 !important;
+            transform: translateY(-2px);
+        }
+
+        .hero-section {
+            background: url('https://watermark.lovepik.com/photo/20211122/large/lovepik-business-team-meeting-discussion-picture_500704821.jpg') no-repeat center center;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 80px 0;
+            margin: 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .members-section {
+            padding: 60px 0;
+            background: #ffffff;
+            border-radius: 20px;
+            margin: 2rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            margin-left: 100px;
+        }
+
+        .members-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(59, 130, 246, 0.1) 0%, rgba(30, 58, 138, 0.1) 100%);
+            z-index: 0;
+        }
+
+        .member-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .member-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            width: 236px;
+            height: 375px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .member-card:hover {
+            transform: translateY(-15px) scale(1.05);
+            box-shadow: 0 12px 30px rgba(59, 130, 246, 0.2);
+        }
+
+        .member-card img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .member-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .member-card .card-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #1e3a8a;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .member-card:hover .card-title {
+            color: #3b82f6;
+        }
+
+        .member-card .card-text {
+            color: #6b7280;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .member-card .social-icons {
+            margin-top: 1rem;
+        }
+
+        .member-card .social-icons a {
+            color: #3b82f6;
+            margin: 0 8px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .member-card .social-icons a:hover {
+            color: #1e3a8a;
+            transform: scale(1.2) rotate(15deg);
+        }
+
+        footer {
+            background: linear-gradient(90deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.15);
+            flex-shrink: 0;
+        }
+
+        footer a {
+            color: #fef08a;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #ffffff;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .member-card {
+                width: 180px;
+                height: 280px;
+            }
+
+            .member-card img {
+                width: 100px;
+                height: 100px;
+            }
+
+            .navbar-brand {
+                font-size: 1.5rem;
+            }
+
+            footer .col-md-4 {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Siêu Thị Dừa</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="TrangBanHang.html">Trang Chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="idec.html">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="sanPham.html">Sản Phẩm</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gioithieutv.html">Giới thiệu thành viên</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="lienhe.html">Liên Hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-left"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-section">
+        <div class="container hero-content mt-5 pt-3 ">
+            <h1>Giới Thiệu Thành Viên</h1>
+            <p>Hãy cùng gặp gỡ đội ngũ đam mê và sáng tạo phía sau Siêu Thị Lộng Lẫy!</p>
+        </div>
+    </div>
+
+    <!-- Members Section -->
+    <div class="main-content">
+        <div class="container members-section ">
+            <h2 class="text-center mb-5 fw-bold">Đội Ngũ Của Chúng Tôi</h2>
+            <div class="member-wrapper">
+                <div class="member-card">
+                    <img src="./ảnhnhom/dang.jpg" alt="Thành Viên 1" class="mx-auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Nguyễn Hải Đăng</h5>
+                        <p class="card-text">Thành Viên Nhóm 2</p>
+                        <p class="card-text">trưởng nhóm & kĩ sư xây dựng chính</p>
+                        <div class="social-icons">
+                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="./ảnhnhom/cuong.jpg" alt="Thành Viên 2" class="mx-auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Hà Văn Cường</h5>
+                        <p class="card-text">Thành Viên Nhóm 2 </p>
+                        <p class="card-text"> Điều hành nhóm & kiểm duyệt nội dung</p>
+                        <div class="social-icons">
+                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="./ảnhnhom/duc.jpg" alt="Thành Viên 3" class="mx-auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Lò Việt Đức</h5>
+                        <p class="card-text">Thành Viên nhóm 2</p>
+                        <p class="card-text">phụ trách giao diện & cố vấn nội dung</p>
+                        <div class="social-icons">
+                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="./ảnhnhom/dung.jpg" alt="Thành Viên 4" class="mx-auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Hoàng Mạnh Dũng</h5>
+                        <p class="card-text">Thành Viên Nhóm 2</p>
+                        <p class="card-text">phụ trách trình bày & xây dựng trang giới thiệu </p>
+                        <div class="social-icons">
+                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="member-card">
+                    <img src="./ảnhnhom/Screenshot 2025-09-21 133408.png" alt="Thành Viên 5" class="mx-auto">
+                    <div class="card-body">
+                        <h5 class="card-title">Vũ Ngọc Hải</h5>
+                        <p class="card-text">Thành Viên Nhóm 2</p>
+                        <p class="card-text">thiết kế slide & xây dựng trang đăng kí </p>
+                        <div class="social-icons">
+                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container pb-4">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">Sản Phẩm Nổi Bật</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Nước dừa tươi nguyên chất</a></li>
+                        <li><a href="#">Dừa xiêm đóng chai</a></li>
+                        <li><a href="#">Sản phẩm hữu cơ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">Địa Chỉ</h5>
+                    <address>
+                        123 Đường Trần Phú, Phú Thọ<br>
+                        Phú Thọ, Việt Nam<br>
+                        Email: <a href="mailto:contact@nuocdua247.vn">contact@nuocdua247.vn</a><br>
+                        Hotline: <a href="tel:0909123456">0909 123 456</a>
+                    </address>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="fw-bold mb-3">Hỗ Trợ</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="border-light">
+            <p class="text-center mb-0">&copy; 2025 Nước Dừa 247 từ thiên nhiên. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
