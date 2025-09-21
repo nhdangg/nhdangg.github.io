@@ -194,6 +194,29 @@ overflow: hidden;
                 margin-bottom: 2rem;
             }
         }
+
+    #gioithieu:hover{
+        cursor: pointer;
+        transform: translateY(-10px);
+    }
+    #gioithieu{
+        transition: transform 0.3s ease;
+    }
+    #myModal {
+        position: fixed;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -100%); /* Ẩn trên cùng */
+        opacity: 0;
+        transition: transform 0.5s ease, opacity 0.5s ease;
+      
+        }
+
+        /* Khi thêm class .show, modal sẽ trượt xuống */
+        #myModal.show {
+        transform: translate(-50%, 0px); /* Hạ xuống vị trí ban đầu */
+        opacity: 1;
+        }
     </style>
 </head>
 <body>
@@ -243,25 +266,25 @@ overflow: hidden;
         <div class="col-12">
         <div class="row justify-content-between">
             <div class="col-md-3 col-12 text-center">
-                <p class="col-12 text-uppercase">Những sản phẩm</p>
-                <h3 class="col-12 text-success text-uppercase">TUYỆT VỜI</h3>
-               <span class="col-12 justify-content-center d-block">
+                <span class="col-12 text-uppercase">Những sản phẩm</span>
+                <h3 class="col-12 text-success text-uppercase mt-1">TUYỆT VỜI</h3>
+               <span class="col-12 justify-content-center d-block" id="gioithieu">
                  <img src="/img/pngwing.com.png" alt="" class="col-6" style="height: 100px; object-fit: cover;">
                </span>
-                <span class="col-12">Chúng tôi tự hào mang đến những sản phẩm chất lượng nhất, ngon nhất vì sức khỏe người dùng</span>
+                <span class="col-12">Chúng tôi tự hào mang đến những sản phẩm chất lượng nhất, ngon nhất</span>
             </div>
             <div class="col-md-3 col-12 text-center">
-                <p class="col-12 text-uppercase">hệ thông phân phối</p>
-                <h3 class="col-12 text-success text-uppercase">rộng khắp</h3>
-                 <span class="col-12 justify-content-center d-block">
+                <span class="col-12 text-uppercase">hệ thông phân phối</span>
+                <h3 class="col-12 text-success text-uppercase mt-1">rộng khắp</h3>
+                 <span class="col-12 justify-content-center d-block" id="gioithieu">
                  <img src="/img/pngwing.com (1).png" alt="" class="col-6" style="height: 100px; object-fit: cover;">
                </span>
                 <span class="col-12">Sản phẩn của chúng tôi có mặt trên 40 quốc gia khác nhau trên thế giới</span>
             </div>
             <div class="col-md-3 col-12 text-center">
-                <p class="col-12 text-uppercase">Vùng nguyên liệu</p>
-                <h3 class="col-12 text-success text-uppercase">Chất lượng</h3>
-                <span class="col-12 justify-content-center d-block">
+                <span class="col-12 text-uppercase">Vùng nguyên liệu</span>
+                <h3 class="col-12 text-success text-uppercase mt-1">Chất lượng</h3>
+                <span class="col-12 justify-content-center d-block" id="gioithieu">
                  <img src="/img/pngwing.com (2).png" alt="" class="col-6" style="height: 100px; object-fit: cover;">
                </span>
                 <span class="col-12">Từ những vườn dừa uy tín sứ Việt tươi tốt, cho năng xuất cao và chất lượng</span>
