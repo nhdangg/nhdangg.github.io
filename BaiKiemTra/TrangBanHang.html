@@ -288,9 +288,9 @@ overflow: hidden;
                                 <p class="fw-bold text-danger fs-5">599,000 VNĐ</p>
                             </div>
                             <div class="card-footer bg-transparent border-0 text-center">
-                                <a href="#" class="btn btn-sm btn-primary">
+                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                                     <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -310,9 +310,9 @@ overflow: hidden;
                                 <p class="fw-bold text-danger fs-5">899,000 VNĐ</p>
                             </div>
                             <div class="card-footer bg-transparent border-0 text-center">
-                                <a href="#" class="btn btn-sm btn-primary">
+                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                                     <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -332,9 +332,9 @@ overflow: hidden;
                                 <p class="fw-bold text-danger fs-5">1,299,000 VNĐ</p>
                             </div>
                             <div class="card-footer bg-transparent border-0 text-center">
-                                <a href="#" class="btn btn-sm btn-primary">
+                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                                     <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -354,9 +354,9 @@ overflow: hidden;
                                 <p class="fw-bold text-danger fs-5">1,599,000 VNĐ</p>
                             </div>
                             <div class="card-footer bg-transparent border-0 text-center">
-                                <a href="#" class="btn btn-sm btn-primary">
+                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                                     <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -381,9 +381,9 @@ overflow: hidden;
                                  <span class="fw-bold text-danger fs-5">399,000 VNĐ</span>
                             </div>
                             <div class="card-footer bg-transparent border-0 text-center">
-                                <a href="#" class="btn btn-sm btn-primary">
+                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                                     <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -401,12 +401,12 @@ overflow: hidden;
                                     Chất lượng vượt trội, mang lại trải nghiệm tuyệt vời.
                                 </p>
                                 <span class="fw-bold text-secondary text-decoration-line-through">599,000 VNĐ</span>
-                                 <span class="fw-bold text-danger fs-5">399,000 VNĐ</span>
+                                 <span class="fw-bold text-danger fs-5">999,000 VNĐ</span>
                             </div>
                             <div class="card-footer bg-transparent border-0 text-center">
-                                <a href="#" class="btn btn-sm btn-primary">
+                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                                     <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
-                                </a>
+                                </button>   
                             </div>
                         </div>
                     </div>
@@ -427,9 +427,9 @@ overflow: hidden;
                                  <span class="fw-bold text-danger fs-5">399,000 VNĐ</span>
                             </div>
                             <div class="card-footer bg-transparent border-0 text-center">
-                                <a href="#" class="btn btn-sm btn-primary">
+                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                                     <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -450,12 +450,30 @@ overflow: hidden;
                                  <span class="fw-bold text-danger fs-5">399,000 VNĐ</span>
                             </div>
                             <div class="card-footer bg-transparent border-0 text-center">
-                                <a href="#" class="btn btn-sm btn-primary">
+                                <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                                     <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Modal trong bootstrap gọi ra thông báo khi THÊM VÀO GIỎ HÀNG-->
+                    <div class="modal" id="myModal">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header bg-success">
+                                                <h4 class="modal-title fw-bold">Thông Báo</h4>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <p>Thêm vào giỏ hàng thành công </p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                 </div>
             </div>
             <!-- Pagination -->
