@@ -16,23 +16,25 @@
             min-height: 100vh;
         }
 
-        .navbar-custom {
-            background-color: #27ae60;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+       .navbar-custom-gradient {
+            background: linear-gradient(90deg, #1e8a35 0%, #3b82f6 100%);
         }
 
-        .footer-custom {
-            background-color: #1e3a8a;
-        }
-
-        .footer-custom a {
-            color: #fff;
-            text-decoration: none;
+        .navbar-brand {
             transition: color 0.3s;
         }
 
-        .footer-custom a:hover {
-            color: #facc15;
+        .navbar-brand:hover {
+            color: #facc15 !important;
+        }
+
+        .nav-link {
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #facc15 !important;
+            transform: translateY(-2px);
         }
 
         .product-image-main {
@@ -61,33 +63,24 @@
 <body>
 
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark navbar-custom-gradient shadow">
         <div class="container">
-            <a class="navbar-brand" href="#">Siêu Thị Dừa</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <a class="navbar-brand fs-2 fw-bold" href="#">Siêu Thị Dừa</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="TrangBanHang.html">Trang Chủ</a>
+                    <li class="nav-item"><a class="nav-link fw-bold active" href="TrangBanHang.html">Trang Chủ</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="gioiThieu.html">Giới thiệu</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link fw-bold dropdown-toggle" data-bs-toggle="dropdown" href="sanPham.html">Sản Phẩm</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="sanPham.html" class="dropdown-item">Tất cả sản phẩm</a></li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="idec.html">Giới thiệu</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="sanPham.html">Sản Phẩm</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="lienhe.html">Liên Hệ</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="g.html">Giới thiệu thành viên</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-left"></i></a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="lienHe.html">Liên Hệ</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link fw-bold" href="gioithieutv.html">Giới thiệu thành viên</a></li> -->
+                    <li class="nav-item"><a class="nav-link fw-bold" href="login.html"><i class="bi bi-person-circle"></i> Login</a></li>
                 </ul>
             </div>
         </div>
@@ -296,63 +289,51 @@
         </div>
     </div>
 
-    <footer class="text-white py-5 footer-custom mt-auto">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold mb-3">Thông tin liên hệ</h5>
-                    <ul class="list-unstyled small">
-                        <li>Mua hàng: 1800 2097 (7h30 - 22h00)</li>
-                        <li>Khách hàng: 1800 2093 (8h00 - 21h30)</li>
-                        <li>Phương thức thanh toán</li>
-                        <li class="mt-2">
-                            <i class="bi bi-apple fs-3 me-2"></i>
-                            <i class="bi bi-credit-card-fill fs-3 me-2"></i>
-                            <i class="bi bi-qr-code fs-3 me-2"></i>
-                            <i class="bi bi-currency-dollar fs-3 me-2"></i>
-                        </li>
-                    </ul>
+    <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+        <div class="container text-center text-md-start">
+            <div class="row text-center text-md-start">
+                <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 fw-bold text-warning">Siêu Thị Dừa</h5>
+                    <p>Chuyên cung cấp các sản phẩm từ dừa chất lượng cao, đảm bảo an toàn và hương vị tự nhiên. Mang đến trải nghiệm tốt nhất cho khách hàng.</p>
                 </div>
-                <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold mb-3">Địa chỉ</h5>
-                    <ul class="list-unstyled small">
-                        <li><a href="#">Mua hàng trực tuyến Online</a></li>
-                        <li><a href="#">Mua hàng tại cửa hàng Online</a></li>
-                        <li><a href="#">Chính sách bảo hành</a></li>
-                        <li><a href="#">Tra cứu đơn hàng</a></li>
-                        <li><a href="#">Quy định đổi trả đổi trả</a></li>
-                    </ul>
+                <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 fw-bold text-warning">Sản phẩm</h5>
+                    <p><a href="#" class="text-white text-decoration-none">Nước dừa</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Cơm dừa</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Bánh dừa</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Kẹo dừa</a></p>
                 </div>
-                <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold mb-3">Dịch vụ & Thông tin khác</h5>
-                    <ul class="list-unstyled small">
-                        <li><a href="#">Khách hàng doanh nghiệp (B2B)</a></li>
-                        <li><a href="#">Ưu đãi thanh toán</a></li>
-                        <li><a href="#">Chính sách bảo mật thông tin</a></li>
-                        <li><a href="#">Tuyển dụng</a></li>
-                        <li><a href="#">Tài trợ trực tuyến</a></li>
-                    </ul>
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 fw-bold text-warning">Hỗ trợ</h5>
+                    <p><a href="#" class="text-white text-decoration-none">Chính sách đổi trả</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Chính sách bảo mật</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Phương thức vận chuyển</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Liên hệ</a></p>
                 </div>
-                <div class="col-md-3 mb-4">
-                    <h5 class="fw-bold mb-3">Kết nối với chúng tôi</h5>
-                    <div class="d-flex gap-2 mb-3">
-                        <a href="#" class="btn btn-light rounded-circle"><i class="fab fa-youtube text-danger"></i></a>
-                        <a href="#" class="btn btn-light rounded-circle"><i
-                                class="fab fa-instagram text-danger"></i></a>
-                        <a href="#" class="btn btn-light rounded-circle"><i class="fab fa-tiktok text-dark"></i></a>
-                        <a href="#" class="btn btn-light rounded-circle"><i
-                                class="fab fa-facebook text-primary"></i></a>
-                        <a href="#" class="btn btn-light rounded-circle"><i
-                                class="fab fa-whatsapp text-success"></i></a>
-                    </div>
-                    <p class="small">Website thân thiện: <a href="#">nuodua.vui</a></p>
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                    <h5 class="text-uppercase mb-4 fw-bold text-warning">Liên hệ</h5>
+                    <p><i class="fas fa-home me-3"></i>Phú Thọ, Việt Nam</p>
+                    <p><i class="fas fa-envelope me-3"></i>sieuthidua@gmail.com</p>
+                    <p><i class="fas fa-phone me-3"></i>+84 123 456 789</p>
+                    <p><i class="fas fa-print me-3"></i>+84 123 456 789</p>
                 </div>
             </div>
-            <hr class="border-light opacity-25">
-            <p class="text-center mb-0 small text-white-50">© 2025 nuocdua247. All rights reserved.</p>
+            <hr class="mb-4">
+            <div class="row align-items-center">
+                <div class="col-md-7 col-lg-8"><p>© 2025 Copyright: <a href="#" class="text-warning text-decoration-none">sieuthidua.com</a></p></div>
+                <div class="col-md-5 col-lg-4">
+                    <div class="text-center text-md-end">
+                        <ul class="list-unstyled list-inline">
+                            <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white fs-4"><i class="fab fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white fs-4"><i class="fab fa-youtube"></i></a></li>
+                            <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white fs-4"><i class="fab fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white fs-4"><i class="fab fa-tiktok"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
-
     <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">

@@ -1,373 +1,640 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en">
 
 <head>
-    <title>Sản Phẩm - Siêu Thị Dừa</title>
+    <title>Sản Phẩm</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #f8f9fa;
+            background-color: #e9eef7;
         }
 
         .navbar-custom-gradient {
-            background: linear-gradient(90deg, #27ae60 0%, #2ecc71 100%);
+            background: linear-gradient(90deg, #1e8a35 0%, #3b82f6 100%);
         }
 
-        .navbar-brand:hover,
-        .nav-link:hover {
-            color: #f1c40f !important;
-        }
-
-        .nav-link {
-            transition: transform 0.2s ease-in-out;
-        }
-        .nav-link:hover {
-            transform: translateY(-2px);
-        }
-
-        /* --- Card sản phẩm --- */
         .product-card {
+            background-color: #fff;
             border: none;
-            border-radius: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
             overflow: hidden;
-            background: #fff;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
         }
 
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-        }
-        .product-card .card-img-top {
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
         }
 
+        /* === START: HEIGHT ADJUSTMENT === */
+        .product-card img {
+            height: 190px; /* Reduced from 220px */
+            object-fit: cover;
+            width: 100%;
+        }
+        /* === END: HEIGHT ADJUSTMENT === */
+
         .product-card .card-body {
-            text-align: center;
+            padding: 1rem;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .product-card .card-title {
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 600;
-            white-space: nowrap;
+            color: #212529;
+            margin-bottom: 0.5rem;
+            min-height: 2.9em;
             overflow: hidden;
             text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+        }
+
+        /* === START: HEIGHT ADJUSTMENT === */
+        .product-card .card-desc {
+            color: #6c757d;
+            font-size: 0.85rem;
+            margin-bottom: 0.75rem; /* Reduced from 1rem */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
         
-        .product-card .price {
+        .product-card .price-wrapper {
+            margin-bottom: 0.75rem; /* Reduced from 1rem */
+        }
+        /* === END: HEIGHT ADJUSTMENT === */
+
+        .product-card .old-price {
+            text-decoration: line-through;
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-right: 0.5rem;
+        }
+        
+        .product-card .old-price:empty {
+            display: none;
+        }
+
+        .product-card .new-price {
+            color: #dc3545;
+            font-weight: bold;
             font-size: 1.2rem;
-            font-weight: 700;
-            color: #e74c3c;
         }
 
-        /* --- Phân trang --- */
-        .pagination .page-item.active .page-link {
-            background-color: #27ae60;
-            border-color: #27ae60;
-        }
-        .pagination .page-link {
-            color: #27ae60;
-        }
-        .pagination .page-link:hover {
-            background-color: #2ecc71;
-            color: white;
+        .product-card .card-footer-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        /* --- Footer --- */
-        footer {
-            background: #2c3e50;
-            color: #ecf0f1;
-        }
-        footer .text-warning {
-            color: #f1c40f !important;
-        }
-        footer a {
-            color: #ecf0f1;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        footer a:hover {
-            color: #f1c40f;
+        .product-card .rating-wrapper {
+            color: #ffc107;
         }
 
+        .product-card .btn-add-cart {
+            font-size: 0.9rem;
+        }
+
+        .sidebar-card {
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .list-group-item-action:hover,
+        .list-group-item-action:focus {
+            background-color: #e9ecef;
+            color: #0d6efd;
+        }
     </style>
 </head>
 
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg sticky-top navbar-dark navbar-custom-gradient shadow-sm">
+        <nav class="navbar navbar-expand-lg sticky-top navbar-dark navbar-custom-gradient shadow">
             <div class="container">
-                <a class="navbar-brand fs-4 fw-bold" href="#">SIÊU THỊ DỪA</a>
+                <a class="navbar-brand fs-2 fw-bold" href="#">Siêu Thị Dừa</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link fw-bold" href="#">Trang Chủ</a></li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="#">Giới thiệu</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link fw-bold dropdown-toggle active" data-bs-toggle="dropdown" href="#" role="button">Sản Phẩm</a>
+                        <li class="nav-item"><a class="nav-link fw-bold" href="TrangBanHang.html">Trang Chủ</a></li>
+                        <li class="nav-item"><a class="nav-link fw-bold" href="gioiThieu.html">Giới thiệu</a></li>
+                        <li class="nav-item dropdown"><a class="nav-link fw-bold dropdown-toggle active" data-bs-toggle="dropdown" href="sanPham.html">Sản Phẩm</a>
                             <ul class="dropdown-menu">
-                                <li><a href="#" class="dropdown-item">Tất cả sản phẩm</a></li>
+                                <li><a href="sanPham.html" class="dropdown-item">Tất cả sản phẩm</a></li>
                             </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link fw-bold" href="#">Liên Hệ</a></li>
+                        <li class="nav-item"><a class="nav-link fw-bold" href="lienHe.html">Liên Hệ</a></li>
+                        <li class="nav-item"><a class="nav-link fw-bold" href="login.html"><i class="bi bi-person-circle"></i> Login</a></li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+    <main class="py-5">
+        <div class="container">
+            <div class="row">
 
-    <main class="container my-5">
-        <h1 class="text-center mb-5 fw-bold text-success">Tất Cả Sản Phẩm</h1>
-
-        <div class="row g-4" id="product-list">
-            </div>
-
-        <nav class="d-flex justify-content-center mt-5">
-            <ul class="pagination shadow-sm" id="pagination"></ul>
-        </nav>
-    </main>
-
-    <div class="modal fade" id="productModal" tabindex="-1">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title fw-bold" id="productModalLabel">Chi tiết sản phẩm</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-5 text-center">
-                            <img id="modalImage" src="" class="img-fluid rounded mb-3 border" alt="">
-                            <div id="modalGallery" class="d-flex justify-content-center gap-2"></div>
-                        </div>
-                        <div class="col-md-7">
-                            <h3 id="modalName" class="fw-bold"></h3>
-                            <p id="modalDesc" class="text-muted"></p>
-                            <div class="my-3">
-                                <del id="modalOldPrice" class="text-secondary fs-5"></del>
-                                <span id="modalNewPrice" class="fw-bold text-danger fs-4 ms-2"></span>
+                <div class="col-lg-3">
+                    <div class="card sidebar-card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3 fw-bold">Tìm kiếm</h5>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Tên sản phẩm...">
+                                <button class="btn btn-outline-primary" type="button"><i
+                                        class="bi bi-search"></i></button>
                             </div>
-                            <div class="mt-4">
-                                <button id="btnBuyNow" class="btn btn-danger me-2">⚡ Mua Ngay</button>
-                                <button id="btnAddCart" class="btn btn-outline-primary">🛒 Thêm vào giỏ</button>
+                        </div>
+                    </div>
+
+                    <div class="card sidebar-card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3 fw-bold">Danh mục sản phẩm</h5>
+                            <div class="list-group list-group-flush">
+                                <a href="#" class="list-group-item list-group-item-action active"
+                                    aria-current="true">Tất cả sản phẩm</a>
+                                <a href="#" class="list-group-item list-group-item-action">Nước dừa</a>
+                                <a href="#" class="list-group-item list-group-item-action">Kẹo dừa</a>
+                                <a href="#" class="list-group-item list-group-item-action">Dầu dừa</a>
+                                <a href="#" class="list-group-item list-group-item-action">Mỹ phẩm từ dừa</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card sidebar-card mb-4">
+                        <div class="card-body">
+                            <h5 class="card-title mb-3 fw-bold">Lọc theo giá</h5>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="priceFilter" id="price1" checked>
+                                <label class="form-check-label" for="price1">
+                                    Tất cả
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="priceFilter" id="price2">
+                                <label class="form-check-label" for="price2">
+                                    Dưới 50.000đ
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="radio" name="priceFilter" id="price3">
+                                <label class="form-check-label" for="price3">
+                                    50.000đ - 100.000đ
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="priceFilter" id="price4">
+                                <label class="form-check-label" for="price4">
+                                    Trên 100.000đ
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h2 class="fw-bold mb-0">Tất cả sản phẩm</h2>
+                        <div class="d-flex align-items-center">
+                            <label for="sort-by" class="form-label me-2 mb-0 fw-500 text-nowrap">Sắp xếp:</label>
+                            <select class="form-select form-select-sm" id="sort-by" style="min-width: 180px;">
+                                <option selected>Mặc định</option>
+                                <option value="1">Giá: Tăng dần</option>
+                                <option value="2">Giá: Giảm dần</option>
+                                <option value="3">Tên: A-Z</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row g-4" id="product-list">
+                    </div>
+
+                    <nav class="d-flex justify-content-center mt-5">
+                        <ul class="pagination" id="pagination"></ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="productModal" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title fw-bold" id="productModalLabel">Chi tiết sản phẩm</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-5 text-center">
+                                <img id="modalImage" src="" class="img-fluid rounded mb-3 border" alt="">
+                                <div id="modalGallery" class="d-flex justify-content-center gap-2"></div>
+                            </div>
+                            <div class="col-md-7">
+                                <h4 id="modalName"></h4>
+                                <p id="modalDesc" class="text-muted"></p>
+                                <p>
+                                    <del id="modalOldPrice" class="text-secondary"></del>
+                                    <span id="modalNewPrice" class="fw-bold text-danger fs-4 ms-2"></span>
+                                </p>
+                                <div class="mt-4">
+                                    <button id="btnBuyNow" class="btn btn-danger me-2">⚡ Mua Ngay</button>
+                                    <button id="btnAddCart" class="btn btn-outline-primary">🛒 Thêm vào giỏ</button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <footer class="pt-5 pb-4 mt-5">
+        <script>
+            // Dữ liệu sản phẩm không đổi
+            const products = [
+                {
+                    id: 1,
+                    name: "Kẹo Dừa Dẻo Bến Tre (Hộp 500g)",
+                    img: "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2018/09/keo-dua-ben-tre-vntrip12.jpg",
+                    rating: 5,
+                    oldPrice: "65.000đ",
+                    newPrice: "58.000đ",
+                    desc: "Đặc sản kẹo dừa Bến Tre chính gốc, béo ngậy vị nước cốt dừa, dẻo thơm quyến rũ.",
+                    gallery: [
+                        "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2018/09/keo-dua-ben-tre-vntrip12.jpg",
+                        "https://d1sag4ddilekf6.cloudfront.net/compressed/merchants/VNGFVN000003wg/hero/450f3bdd968e469d80d28367469a98d3_1648710344243685934.jpeg"
+                    ]
+                },
+                {
+                    id: 2,
+                    name: "Kẹo Dừa Bến Tre (Gói 500g)",
+                    oldPrice: "65.000đ",
+                    newPrice: "58.000đ",
+                    img: "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2018/09/keo-dua-ben-tre-vntrip12.jpg",
+                    rating: 5,
+                    desc: "Đặc sản kẹo dừa Bến Tre chính gốc, béo ngậy vị nước cốt dừa.",
+                    gallery: [
+                        "https://cdn.vntrip.vn/cam-nang/wp-content/uploads/2018/09/keo-dua-ben-tre-vntrip12.jpg",
+                        "https://d1sag4ddilekf6.cloudfront.net/compressed/merchants/VNGFVN000003wg/hero/450f3bdd968e469d80d28367469a98d3_1648710344243685934.jpeg"
+                    ]
+                },
+                {
+                    id: 3,
+                    name: "Dầu Dừa Tinh Khiết Ép Lạnh (100ml)",
+                    oldPrice: "",
+                    newPrice: "89.000đ",
+                    img: "https://toplist.vn/images/800px/dau-dua-ep-lanh-herbee-100ml-829715.jpg",
+                    rating: 4,
+                    desc: "Dầu dừa tinh khiết 100% ép lạnh, dùng cho làm đẹp và nấu ăn.",
+                    gallery: [
+                        "https://toplist.vn/images/800px/dau-dua-ep-lanh-herbee-100ml-829715.jpg"
+                    ]
+                },
+                {
+                    id: 4,
+                    name: "Bánh Sữa Dừa",
+                    oldPrice: "40.000đ",
+                    newPrice: "35.000đ",
+                    img: "https://vn-test-11.slatic.net/p/e58214c1f2282f61819c0984af3679fc.jpg",
+                    rating: 5,
+                    desc: "Bánh tráng sữa dừa nướng giòn tan, thơm lừng vị dừa.",
+                    gallery: [
+                        "https://vn-test-11.slatic.net/p/e58214c1f2282f61819c0984af3679fc.jpg"
+                    ]
+                },
+                {
+                    id: 5,
+                    name: "Mứt Dừa Non Dẻo (Hộp 250g)",
+                    oldPrice: "80.000đ",
+                    newPrice: "75.000đ",
+                    img: "https://truonghaofood.vn/upload/photo/1dsc09912-15-247.jpg",
+                    rating: 5,
+                    desc: "Mứt dừa non sên thủ công, dẻo thơm, ngọt dịu, không chất bảo quản.",
+                    gallery: [
+                        "https://truonghaofood.vn/upload/photo/1dsc09912-15-247.jpg"
+                    ]
+                },
+                {
+                    id: 6,
+                    name: "Nước Dừa Đóng Hộp Cocoxim",
+                    oldPrice: "",
+                    newPrice: "18.000đ",
+                    img: "https://product.hstatic.net/200000352097/product/cade8a3ffe984b1f84a4ea9915770d99_a64e1b6e7c214c90adfc79b4a6ec0ca6_1024x1024.jpg",
+                    rating: 4.5,
+                    desc: "Nước dừa 100% nguyên chất đóng hộp tiện lợi, thương hiệu Cocoxim.",
+                    gallery: [
+                        "https://product.hstatic.net/200000352097/product/cade8a3ffe984b1f84a4ea9915770d99_a64e1b6e7c214c90adfc79b4a6ec0ca6_1024x1024.jpg"
+                    ]
+                },
+                {
+                    id: 7,
+                    name: "Mặt Nạ Dừa Cấp Ẩm",
+                    oldPrice: "35.000đ",
+                    newPrice: "29.000đ",
+                    img: "https://imgcdn.thitruongsi.com/tts/rs:fill:600:0:1:1/g:sm/plain/file:/product/2023/10/04/641bb920-62c2-11ee-a51f-91cd78bcfb2b.jpg",
+                    rating: 5,
+                    desc: "Mặt nạ sinh học từ nước dừa lên men, giúp cấp ẩm sâu cho da.",
+                    gallery: [
+                        "https://imgcdn.thitruongsi.com/tts/rs:fill:600:0:1:1/g:sm/plain/file:/product/2023/10/04/641bb920-62c2-11ee-a51f-91cd78bcfb2b.jpg"
+                    ]
+                },
+                {
+                    id: 8,
+                    name: "Rượu Dừa Lên Men",
+                    oldPrice: "150.000đ",
+                    newPrice: "139.000đ",
+                    img: "https://rueco.vn/wp-content/uploads/2024/01/ruou-dua-rueco.jpg",
+                    rating: 4,
+                    desc: "Rượu dừa lên men tự nhiên, hương vị độc đáo, đậm đà bản sắc miền Tây.",
+                    gallery: [
+                        "https://rueco.vn/wp-content/uploads/2024/01/ruou-dua-rueco.jpg"
+                    ]
+                },
+                {
+                    id: 9,
+                    name: "Kẹo Dừa Sáp Mềm",
+                    oldPrice: "",
+                    newPrice: "70.000đ",
+                    img: "https://down-vn.img.susercontent.com/file/ee732fcf298b06978a38e26a8abf730e",
+                    rating: 5,
+                    desc: "Kẹo làm từ dừa sáp Cầu Kè, dẻo mềm và béo ngậy đặc trưng.",
+                    gallery: [
+                        "https://down-vn.img.susercontent.com/file/ee732fcf298b06978a38e26a8abf730e"
+                    ]
+                },
+                {
+                    id: 10,
+                    name: "Nước Màu Dừa Nguyên Chất",
+                    oldPrice: "45.000đ",
+                    newPrice: "39.000đ",
+                    img: "https://dauduacoba.com/wp-content/uploads/2023/11/nuoc-mau-dua-100ml.png",
+                    rating: 4.5,
+                    desc: "Nước màu dừa tự nhiên, tạo màu và hương vị thơm ngon cho món kho.",
+                    gallery: [
+                        "https://dauduacoba.com/wp-content/uploads/2023/11/nuoc-mau-dua-100ml.png"
+                    ]
+                },
+                {
+                    id: 11,
+                    name: "Thạch Dừa Thô (Túi 1kg)",
+                    oldPrice: "",
+                    newPrice: "50.000đ",
+                    img: "https://th.bing.com/th/id/OIP.HnNfHTJnv3f5QuJYJjq1XQHaJ4?w=133&h=180&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3",
+                    rating: 4,
+                    desc: "Thạch dừa thô chưa qua chế biến, dùng để nấu chè, làm topping.",
+                    gallery: [
+                        "https://th.bing.com/th/id/OIP.HnNfHTJnv3f5QuJYJjq1XQHaJ4?w=133&h=180&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3"
+                    ]
+                },
+                {
+                    id: 12,
+                    name: "Son Dưỡng Môi Dầu Dừa",
+                    oldPrice: "55.000đ",
+                    newPrice: "49.000đ",
+                    img: "https://tse3.mm.bing.net/th/id/OIP.6ZseiRjiZAoremyf-oLQRwHaJ4?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3",
+                    rating: 5,
+                    desc: "Son dưỡng môi handmade từ dầu dừa và sáp ong, giữ ẩm cho môi.",
+                    gallery: [
+                        "https://tse3.mm.bing.net/th/id/OIP.6ZseiRjiZAoremyf-oLQRwHaJ4?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
+                    ]
+                },
+                {
+                    id: 13,
+                    name: "Bột Cám Dừa Tẩy Tế Bào Chết",
+                    oldPrice: "",
+                    newPrice: "65.000đ",
+                    img: "https://cornerstonefinefoods.com/wp-content/uploads/2018/05/83-500x500.jpg",
+                    rating: 4,
+                    desc: "Bột cám dừa tự nhiên giúp tẩy tế bào chết nhẹ nhàng, làm sáng da.",
+                    gallery: [
+                        "https://cornerstonefinefoods.com/wp-content/uploads/2018/05/83-500x500.jpg"
+                    ]
+                },
+                {
+                    id: 14,
+                    name: "Nước Dừa Vị Dứa Tươi",
+                    oldPrice: "22.000đ",
+                    newPrice: "19.000đ",
+                    img: "https://pcprd.azureedge.net/content/are-you-wondering-if-coconuts-are-safe-for-your-kid--here-s-everything-you-need-to-know-about-including-coconut-in-your-child-s-diet-1222465167629.jpg",
+                    rating: 4.5,
+                    desc: "Sự kết hợp độc đáo giữa nước dừa tươi và vị thơm của dứa.",
+                    gallery: [
+                        "https://pcprd.azureedge.net/content/are-you-wondering-if-coconuts-are-safe-for-your-kid--here-s-everything-you-need-to-know-about-including-coconut-in-your-child-s-diet-1222465167629.jpg"
+                    ]
+                },
+                {
+                    id: 15,
+                    name: "Giấm Dừa Lên Men (Chai 250ml)",
+                    oldPrice: "60.000đ",
+                    newPrice: "55.000đ",
+                    img: "https://organicstore.vn/wp-content/uploads/2021/12/8018699025701.GIAM-DUA-HUU-CO-web.jpg",
+                    rating: 4,
+                    desc: "Giấm làm từ mật hoa dừa lên men, tốt cho sức khỏe, dùng để trộn salad.",
+                    gallery: [
+                        "https://organicstore.vn/wp-content/uploads/2021/12/8018699025701.GIAM-DUA-HUU-CO-web.jpg"
+                    ]
+                }
+            ];
+
+
+            const itemsPerPage = 6;
+            let currentPage = 1;
+
+            function generateStarsHTML(rating) {
+                let starsHTML = '';
+                const fullStars = Math.floor(rating);
+                const halfStar = rating % 1 >= 0.5;
+                for (let i = 0; i < 5; i++) {
+                    if (i < fullStars) {
+                        starsHTML += '<i class="bi bi-star-fill"></i>';
+                    } else if (i === fullStars && halfStar) {
+                        starsHTML += '<i class="bi bi-star-half"></i>';
+                    } else {
+                        starsHTML += '<i class="bi bi-star"></i>';
+                    }
+                }
+                return starsHTML;
+            }
+            
+            function renderProducts(page) {
+                const productList = document.getElementById('product-list');
+                productList.innerHTML = "";
+
+                const start = (page - 1) * itemsPerPage;
+                const end = start + itemsPerPage;
+                const pageProducts = products.slice(start, end);
+
+                pageProducts.forEach((p) => {
+                    const col = document.createElement('div');
+                    col.className = 'col-md-6 col-lg-4 mb-4';
+                    col.innerHTML = `
+                    <div class="card product-card h-100" data-product-id="${p.id}">
+                        <img src="${p.img}" class="card-img-top" alt="${p.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${p.name}</h5>
+                            <p class="card-desc">${p.desc}</p>
+                            
+                            <div class="mt-auto">
+                                <div class="price-wrapper">
+                                    <span class="old-price">${p.oldPrice}</span>
+                                    <span class="new-price">${p.newPrice}</span>
+                                </div>
+
+                                <div class="card-footer-row">
+                                    <div class="rating-wrapper">
+                                        ${generateStarsHTML(p.rating || 4)}
+                                    </div>
+                                    <button class="btn btn-primary btn-add-cart">
+                                        <i class="bi bi-cart-plus"></i> Thêm
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`;
+                    
+                    const cardElement = col.querySelector('.product-card');
+
+                    cardElement.addEventListener('click', (event) => {
+                        if (event.target.closest('.btn-add-cart')) {
+                            alert("🛒 Đã thêm vào giỏ: " + p.name);
+                        } else {
+                            showProductDetail(p);
+                        }
+                    });
+
+                    productList.appendChild(col);
+                });
+            }
+
+
+            function showProductDetail(product) {
+                document.getElementById("modalImage").src = product.img;
+                document.getElementById("modalName").innerText = product.name;
+                document.getElementById("modalDesc").innerText = product.desc;
+                document.getElementById("modalOldPrice").innerText = product.oldPrice;
+                document.getElementById("modalNewPrice").innerText = product.newPrice;
+
+                const galleryDiv = document.getElementById("modalGallery");
+                galleryDiv.innerHTML = "";
+                if (product.gallery && Array.isArray(product.gallery)) {
+                    product.gallery.forEach(imgUrl => {
+                        const img = document.createElement("img");
+                        img.src = imgUrl;
+                        img.className = "img-thumbnail";
+                        img.style.width = "60px";
+                        img.style.cursor = "pointer";
+                        img.addEventListener("click", () => {
+                            document.getElementById("modalImage").src = imgUrl;
+                        });
+                        galleryDiv.appendChild(img);
+                    });
+                }
+
+                document.getElementById("btnBuyNow").onclick = () => alert("✅ Đã mua " + product.name);
+                document.getElementById("btnAddCart").onclick = () => alert("🛒 Đã thêm vào giỏ: " + product.name);
+
+                const modal = new bootstrap.Modal(document.getElementById('productModal'));
+                modal.show();
+            }
+
+            function renderPagination() {
+                const pagination = document.getElementById('pagination');
+                pagination.innerHTML = "";
+
+                const pageCount = Math.ceil(products.length / itemsPerPage);
+
+                for (let i = 1; i <= pageCount; i++) {
+                    const li = document.createElement('li');
+                    li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+                    li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+                    li.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        currentPage = i;
+                        renderProducts(currentPage);
+                        renderPagination();
+                    });
+                    pagination.appendChild(li);
+                }
+            }
+
+            // Khởi tạo
+            renderProducts(currentPage);
+            renderPagination();
+        </script>
+    </main>
+
+
+    <footer class="bg-dark text-white pt-5 pb-4 mt-5" data-aos="fade-up">
         <div class="container text-center text-md-start">
             <div class="row text-center text-md-start">
                 <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 fw-bold text-warning">Siêu Thị Dừa</h5>
-                    <p>Chuyên cung cấp các sản phẩm từ dừa chất lượng cao, đảm bảo an toàn và hương vị tự nhiên.</p>
+                    <p>Chuyên cung cấp các sản phẩm từ dừa chất lượng cao, đảm bảo an toàn và hương vị tự nhiên. Mang đến trải nghiệm tốt nhất cho khách hàng.</p>
                 </div>
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 fw-bold text-warning">Sản phẩm</h5>
-                    <p><a href="#">Nước dừa</a></p>
-                    <p><a href="#">Cơm dừa</a></p>
-                    <p><a href="#">Bánh dừa</a></p>
-                    <p><a href="#">Kẹo dừa</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Nước dừa</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Cơm dừa</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Bánh dừa</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Kẹo dừa</a></p>
                 </div>
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 fw-bold text-warning">Hỗ trợ</h5>
-                    <p><a href="#">Chính sách đổi trả</a></p>
-                    <p><a href="#">Chính sách bảo mật</a></p>
-                    <p><a href="#">Vận chuyển</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Chính sách đổi trả</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Chính sách bảo mật</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Phương thức vận chuyển</a></p>
+                    <p><a href="#" class="text-white text-decoration-none">Liên hệ</a></p>
                 </div>
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                     <h5 class="text-uppercase mb-4 fw-bold text-warning">Liên hệ</h5>
                     <p><i class="fas fa-home me-3"></i>Phú Thọ, Việt Nam</p>
                     <p><i class="fas fa-envelope me-3"></i>sieuthidua@gmail.com</p>
                     <p><i class="fas fa-phone me-3"></i>+84 123 456 789</p>
+                    <p><i class="fas fa-print me-3"></i>+84 123 456 789</p>
                 </div>
             </div>
             <hr class="mb-4">
             <div class="row align-items-center">
-                <div class="col-md-7 col-lg-8">
-                    <p>© 2025 Copyright: <a href="#" class="text-warning">sieuthidua.com</a></p>
-                </div>
+                <div class="col-md-7 col-lg-8"><p>© 2025 Copyright: <a href="#" class="text-warning text-decoration-none">sieuthidua.com</a></p></div>
                 <div class="col-md-5 col-lg-4">
                     <div class="text-center text-md-end">
                         <ul class="list-unstyled list-inline">
-                            <li class="list-inline-item"><a href="#" class="fs-4"><i class="fab fa-facebook"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="fs-4"><i class="fab fa-youtube"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="fs-4"><i class="fab fa-instagram"></i></a></li>
-                            <li class="list-inline-item"><a href="#" class="fs-4"><i class="fab fa-tiktok"></i></a></li>
+                            <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white fs-4"><i class="fab fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white fs-4"><i class="fab fa-youtube"></i></a></li>
+                            <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white fs-4"><i class="fab fa-instagram"></i></a></li>
+                            <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white fs-4"><i class="fab fa-tiktok"></i></a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </footer>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
 
-    <script>
-        // --- DỮ LIỆU MẪU ---
-        const products = [{
-            name: "Nước Dừa Xiêm Xanh",
-            oldPrice: "30.000đ",
-            newPrice: "25.000đ",
-            img: "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
-            desc: "Nước dừa xiêm mát lạnh, bổ dưỡng, giải nhiệt tức thì.",
-            rating: 4.5,
-            gallery: [
-                "https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg",
-                "https://media-cdn-v2.laodong.vn/storage/newsportal/2021/9/6/951961/Nuoc-Dua.jpg"
-            ]
-        }];
-
-    
-
-        const itemsPerPage = 8;
-        let currentPage = 1;
-
-        // --- CÁC HÀM XỬ LÝ ---
-
-        // Hàm tạo HTML cho các ngôi sao đánh giá
-        function generateStarsHTML(rating) {
-            let starsHTML = '';
-            const fullStars = Math.floor(rating);
-            const halfStar = rating % 1 >= 0.5;
-            const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
-
-            for (let i = 0; i < fullStars; i++) starsHTML += '<i class="fa-solid fa-star"></i>';
-            if (halfStar) starsHTML += '<i class="fa-solid fa-star-half-stroke"></i>';
-            for (let i = 0; i < emptyStars; i++) starsHTML += '<i class="fa-regular fa-star"></i>';
-            return starsHTML;
-        }
-
-      // Hàm hiển thị sản phẩm lên trang (PHIÊN BẢN ĐÃ CHỈNH SỬA)
-function renderProducts(page) {
-    const productList = document.getElementById('product-list');
-    productList.innerHTML = "";
-
-    const start = (page - 1) * itemsPerPage;
-    const end = start + itemsPerPage;
-    const pageProducts = products.slice(start, end);
-
-    pageProducts.forEach((p) => {
-        const col = document.createElement('div');
-        col.className = "col-lg-3 col-md-4 col-sm-6 mb-4 d-flex align-items-stretch";
-
-        // --- BẮT ĐẦU PHẦN HTML ĐÃ SỬA ---
-        col.innerHTML = `
-            <div class="card shadow-sm border-0 rounded-4 overflow-hidden h-100 w-100">
-                <div class="ratio ratio-16x9">
-                    <img src="${p.img}" class="card-img-top object-fit-cover" alt="${p.name}">
-                </div>
-                
-                <div class="card-body p-4 d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">${p.name}</h5>
-                    <p class="card-text text-muted small mb-3">${p.desc.substring(0, 65)}...</p>
-
-                    <div class="mt-auto"> 
-                        <div class="d-flex align-items-baseline gap-2 mb-3">
-                            <span class="text-muted text-decoration-line-through">${p.oldPrice}</span>
-                            <span class="text-danger fw-bold fs-4">${p.newPrice}</span>
-                        </div>
-
-                        <div class="d-flex justify-content-between align-items-center">
-                            <div class="text-warning fs-5">
-                                ${generateStarsHTML(p.rating)}
-                            </div>
-                            <button type="button" class="btn btn-primary fw-semibold btn-view-detail">
-                                <i class="fas fa-shopping-cart me-1"></i>Thêm
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>`;
-        // --- KẾT THÚC PHẦN HTML ĐÃ SỬA ---
-
-        // Gắn sự kiện click vào nút 'Xem chi tiết/Thêm'
-        col.querySelector('.btn-view-detail').addEventListener('click', () => {
-            showProductDetail(p);
-        });
-
-        productList.appendChild(col);
-    });
-}
-
-        // Hàm hiển thị chi tiết sản phẩm trong Modal
-        function showProductDetail(product) {
-            document.getElementById("modalImage").src = product.gallery[0];
-            document.getElementById("modalName").innerText = product.name;
-            document.getElementById("modalDesc").innerText = product.desc;
-            document.getElementById("modalOldPrice").innerText = product.oldPrice;
-            document.getElementById("modalNewPrice").innerText = product.newPrice;
-
-            const galleryDiv = document.getElementById("modalGallery");
-            galleryDiv.innerHTML = "";
-            product.gallery.forEach(imgUrl => {
-                const img = document.createElement("img");
-                img.src = imgUrl;
-                img.className = "img-thumbnail";
-                img.style.width = "60px";
-                img.style.cursor = "pointer";
-                img.addEventListener("click", () => document.getElementById("modalImage").src = imgUrl);
-                galleryDiv.appendChild(img);
-            });
-            
-            document.getElementById("btnBuyNow").onclick = () => alert("✅ Đã mua " + product.name);
-            document.getElementById("btnAddCart").onclick = () => alert("🛒 Đã thêm vào giỏ: " + product.name);
-
-            const productModal = new bootstrap.Modal(document.getElementById('productModal'));
-            productModal.show();
-        }
-
-        // Hàm tạo các nút phân trang
-        function renderPagination() {
-            const pagination = document.getElementById('pagination');
-            pagination.innerHTML = "";
-            const pageCount = Math.ceil(products.length / itemsPerPage);
-
-            for (let i = 1; i <= pageCount; i++) {
-                const li = document.createElement('li');
-                li.className = `page-item ${i === currentPage ? 'active' : ''}`;
-                li.innerHTML = `<a class="page-link" href="#">${i}</a>`;
-                li.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    currentPage = i;
-                    renderProducts(currentPage);
-                    renderPagination();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                });
-                pagination.appendChild(li);
-            }
-        }
-
-        // --- KHỞI CHẠY LẦN ĐẦU ---
-        document.addEventListener('DOMContentLoaded', () => {
-            renderProducts(currentPage);
-            renderPagination();
-        });
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
