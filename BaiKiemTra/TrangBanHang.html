@@ -94,14 +94,23 @@
             75% { transform: rotate(6deg); }
         }
         .text-truncate-lines-2 {
-        /* Bắt buộc phải có để ẩn đi phần văn bản bị thừa */
-        overflow: hidden;
-        
-        /* Các thuộc tính đặc biệt để giới hạn dòng */
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 2; /* Sửa số 2 thành số dòng bạn muốn giới hạn */
-    }
+            /* Bắt buộc phải có để ẩn đi phần văn bản bị thừa */
+            overflow: hidden;
+            
+            /* Các thuộc tính đặc biệt để giới hạn dòng */
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2; /* Sửa số 2 thành số dòng bạn muốn giới hạn */
+        }
+         .text-truncate-lines-1 {
+            /* Bắt buộc phải có để ẩn đi phần văn bản bị thừa */
+            overflow: hidden;
+            
+            /* Các thuộc tính đặc biệt để giới hạn dòng */
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1; /* Sửa số 2 thành số dòng bạn muốn giới hạn */
+        }
     </style>
 </head>
 
@@ -180,7 +189,7 @@
                                 <img src="/img/keoDua.jpg" class="card-img-top object-fit-cover" alt="Kẹo dừa Bến Tre">
                             </div>
                             <div class="card-body text-center pt-3 pb-0 flex-grow-1">
-                                <h5 class="card-title fw-semibold">Kẹo dừa dẻo Bến Tre</h5>
+                                <h5 class="card-title fw-semibold text-truncate-lines-1">Kẹo dừa dẻo Bến Tre</h5>
                                 <p class="card-text text-muted small mb-1 text-truncate-lines-2">Hương vị truyền thống, dẻo thơm béo ngậy từ nước cốt dừa nguyên chất, đặc sản không thể bỏ qua.</p>
                                 <div class="d-flex justify-content-center align-items-baseline gap-2 mt-2">
                                     <span class="fw-bold text-secondary text-decoration-line-through">85,000 VNĐ</span>
@@ -202,7 +211,7 @@
                                 <img src="/img/dauDua.jpg" class="card-img-top object-fit-cover" alt="Dầu dừa ép lạnh">
                             </div>
                             <div class="card-body text-center pt-3 pb-0 flex-grow-1">
-                                <h5 class="card-title fw-semibold">Dầu Dừa Ép Lạnh</h5>
+                                <h5 class="card-title fw-semibold text-truncate-lines-1">Dầu Dừa Ép Lạnh</h5>
                                 <p class="card-text text-muted small mb-1 text-truncate-lines-2">Tinh khiết 100%, tuyệt vời để dưỡng da, dưỡng tóc hoặc sử dụng trong nấu ăn hằng ngày.</p>
                                 <div class="d-flex justify-content-center align-items-baseline gap-2 mt-2">
                                     <span class="fw-bold text-secondary text-decoration-line-through">150,000 VNĐ</span>
@@ -224,7 +233,7 @@
                                 <img src="https://cdn.tgdd.vn/Files/2021/08/17/1375939/cach-lam-mut-dua-non-deo-thom-don-gian-de-lam-tai-nha-202108171018282305.jpg" class="card-img-top object-fit-cover" alt="Mứt dừa non">
                             </div>
                             <div class="card-body text-center pt-3 pb-0 flex-grow-1">
-                                <h5 class="card-title fw-semibold">Mứt Dừa Non Sấy Dẻo</h5>
+                                <h5 class="card-title fw-semibold text-truncate-lines-1">Mứt Dừa Non Sấy Dẻo</h5>
                                 <p class="card-text text-muted small mb-1 text-truncate-lines-2">Sợi dừa non mềm dẻo, ngọt thanh tự nhiên, không sử dụng chất bảo quản, món ngon cho ngày Tết.</p>
                                 <div class="d-flex justify-content-center align-items-baseline gap-2 mt-2">
                                     <span class="fw-bold text-secondary text-decoration-line-through">120,000 VNĐ</span>
@@ -246,7 +255,7 @@
                                 <img src="https://product.hstatic.net/200000424699/product/400ml_nuoc_cot_dua_ufc_5a34e8f776264ee184d0b1d303f8f90c_large.jpg" class="card-img-top object-fit-cover" alt="Nước cốt dừa">
                             </div>
                             <div class="card-body text-center pt-3 pb-0 flex-grow-1">
-                                <h5 class="card-title fw-semibold">Nước Cốt Dừa Đóng Lon</h5>
+                                <h5 class="card-title fw-semibold text-truncate-lines-1">Nước Cốt Dừa Đóng Lon</h5>
                                 <p class="card-text text-muted small mb-1 text-truncate-lines-2">Sánh mịn, béo ngậy, là nguyên liệu hoàn hảo cho các món chè, cà ri, làm bánh và pha chế.</p>
                                 <div class="d-flex justify-content-center align-items-baseline gap-2 mt-2">
                                     <span class="fw-bold text-secondary text-decoration-line-through">35,000 VNĐ</span>
@@ -280,7 +289,7 @@
                         <img src="https://product.hstatic.net/200000255201/product/nuoc-dua-tuoi-cocoxim-330ml_29396e921d4c4e2098239a2f7c006437_large.jpg" class="card-img-top object-fit-cover" alt="Nước dừa tươi">
                     </div>
                     <div class="card-body text-center py-3 flex-grow-1">
-                        <h5 class="card-title fw-semibold">Nước Dừa Tươi Xiêm Xanh</h5>
+                        <h5 class="card-title fw-semibold text-truncate-lines-1">Nước Dừa Tươi Xiêm Xanh</h5>
                         <p class="card-text text-muted small mb-1 text-truncate-lines-2">Giải khát tự nhiên, ngọt mát từ 100% dừa xiêm Bến Tre chính gốc, không thêm đường.</p>
                         <div class="d-flex justify-content-center align-items-baseline gap-2 mt-2">
                             <span class="fw-bold text-secondary text-decoration-line-through">35,000 VNĐ</span>
@@ -302,7 +311,7 @@
                         <img src="https://vietmartjp.com/wp-content/uploads/2022/08/sua-dua-vinamilk-180ml.jpg" class="card-img-top object-fit-cover" alt="Sữa Dừa Hộp">
                     </div>
                     <div class="card-body text-center py-3 flex-grow-1">
-                        <h5 class="card-title fw-semibold">Sữa Dừa Hộp Vinamilk</h5>
+                        <h5 class="card-title fw-semibold text-truncate-lines-1">Sữa Dừa Hộp Vinamilk</h5>
                         <p class="card-text text-muted small mb-1 text-truncate-lines-2">Thơm ngon, bổ dưỡng với vị dừa tự nhiên, cung cấp năng lượng cho ngày dài năng động.</p>
                         <div class="d-flex justify-content-center align-items-baseline gap-2 mt-2">
                             <span class="fw-bold text-secondary text-decoration-line-through">25,000 VNĐ</span>
@@ -324,7 +333,7 @@
                         <img src="https://bizweb.dktcdn.net/thumb/large/100/374/684/products/banh-trang-sua-dua-nuong-1.jpg?v=1686908588000" class="card-img-top object-fit-cover" alt="Bánh Tráng Sữa Dừa">
                     </div>
                     <div class="card-body text-center py-3 flex-grow-1">
-                        <h5 class="card-title fw-semibold">Bánh Tráng Sữa Dừa</h5>
+                        <h5 class="card-title fw-semibold text-truncate-lines-1">Bánh Tráng Sữa Dừa</h5>
                         <p class="card-text text-muted small mb-1 text-truncate-lines-2">Món ăn vặt tuổi thơ, giòn tan khi nướng, béo thơm đậm đà hương vị sữa và dừa.</p>
                         <div class="d-flex justify-content-center align-items-baseline gap-2 mt-2">
                             <span class="fw-bold text-secondary text-decoration-line-through">50,000 VNĐ</span>
@@ -346,7 +355,7 @@
                         <img src="https://i.ytimg.com/vi/63-94-jxo60/maxresdefault.jpg" class="card-img-top object-fit-cover" alt="Kem Dừa">
                     </div>
                     <div class="card-body text-center py-3 flex-grow-1">
-                        <h5 class="card-title fw-semibold">Kem Dừa Mát Lạnh</h5>
+                        <h5 class="card-title fw-semibold text-truncate-lines-1">Kem Dừa Mát Lạnh</h5>
                         <p class="card-text text-muted small mb-1 text-truncate-lines-2">Mát lạnh sảng khoái, đậm đà hương vị kem dừa truyền thống, giải nhiệt ngày hè.</p>
                         <div class="d-flex justify-content-center align-items-baseline gap-2 mt-2">
                             <span class="fw-bold text-secondary text-decoration-line-through">40,000 VNĐ</span>
@@ -364,8 +373,13 @@
         </div>
     </div>
 
-    <div class="container my-5" data-aos="fade-up">
-        <h2 class="text-center mb-5 fw-bold">Danh mục sản phẩm</h2>
+    <!-- DANH MỤC DANH SẢN PHẨM -->
+    <div class="container mt-5" data-aos="fade-up">
+       <div class="d-flex align-items-center justify-content-center pt-5 mb-4" data-aos="fade-up">
+            <div class="flex-grow-1 border-top border-secondary mx-3"></div>
+            <h2 class="fw-bold mb-0 text-center">Sản Phẩm Bán Chạy</h2>
+            <div class="flex-grow-1 border-top border-secondary mx-3"></div>
+        </div>
         <ul class="nav nav-pills justify-content-center mb-4" id="pills-tab" role="tablist">
             <li class="nav-item" role="presentation"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#nuocdua" type="button">Nước Dừa</button></li>
             <li class="nav-item" role="presentation"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#comdua" type="button">Cơm Dừa</button></li>
@@ -377,6 +391,7 @@
             <div class="tab-pane fade" id="banhdua" role="tabpanel"><div class="row g-4"></div></div>
         </div>
     </div>
+
 
     <div class="container p-0">
         <div class="row text-center g-4 mt-5">
@@ -475,49 +490,188 @@
         timeLeft--;
     }, 1000);
 
-    // Dynamic Product Cards for Tabs
-    const productCardTemplate = (imgSrc, title, description, oldPrice, newPrice) => `
-        <div class="col-lg-3 col-md-4 col-sm-6">
-            <div class="card h-100 shadow-sm border-0 d-flex flex-column">
+
+    /**
+ * Hàm tạo HTML cho các ngôi sao dựa trên điểm rating
+ * @param {number} rating - Điểm đánh giá (ví dụ: 4.5)
+ * @returns {string} - Chuỗi HTML các icon ngôi sao
+ */
+function generateStarsHTML(rating) {
+        let starsHTML = '';
+        const fullStars = Math.floor(rating);
+        const halfStar = rating % 1 !== 0;
+        const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+        for (let i = 0; i < fullStars; i++) {
+            starsHTML += '<i class="bi bi-star-fill"></i>';
+        }
+        if (halfStar) {
+            starsHTML += '<i class="bi bi-star-half"></i>';
+        }
+        for (let i = 0; i < emptyStars; i++) {
+            starsHTML += '<i class="bi bi-star"></i>';
+        }
+        return starsHTML;
+    }
+   /**
+ * Hàm tạo HTML cho một thẻ sản phẩm duy nhất
+ * @param {Object} product - Đối tượng chứa thông tin sản phẩm
+ * @returns {string} - Chuỗi HTML của thẻ sản phẩm
+ */
+ const productCardTemplate = (product) => `
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card shadow-sm border-0 h-100 d-flex flex-column" id="item-product">
                 <div class="ratio ratio-4x3">
-                    <img src="${imgSrc}" class="card-img-top object-fit-contain" alt="${title}">
+                    <img src="${product.img}" class="card-img-top object-fit-cover" alt="${product.title}">
                 </div>
-                <div class="card-body text-center flex-grow-1">
-                    <h5 class="card-title fw-semibold">${title}</h5>
-                    <p class="card-text text-muted small">${description}</p>
-                    <span class="fw-bold text-secondary text-decoration-line-through">${oldPrice} VNĐ</span>
-                    <span class="fw-bold text-danger fs-5 d-block">${newPrice} VNĐ</span>
+                <div class="card-body text-center py-3 flex-grow-1">
+                    <h5 class="card-title fw-semibold text-truncate-lines-1">${product.title}</h5>
+                    <p class="card-text text-muted small mb-1 text-truncate-lines-2">${product.desc}</p>
+                    <div class="d-flex justify-content-center align-items-baseline gap-2 mt-2">
+                        <span class="fw-bold text-secondary text-decoration-line-through">${product.old} VNĐ</span>
+                        <span class="fw-bold text-danger fs-5">${product.new} VNĐ</span>
+                    </div>
                 </div>
                 <div class="card-footer bg-transparent border-0 text-center pb-3">
-                    <button type="button" class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
-                        <i class="fas fa-cart-plus me-2"></i>Thêm vào giỏ
-                    </button>
+                    <div class="row align-items-center">
+                        <div class="col-5 p-0">
+                            <span class="text-warning fs-6">
+                                ${generateStarsHTML(product.rating)}
+                            </span>
+                        </div>
+                        <div class="col-7 p-0">
+                            <button type="button" class="btn btn-sm btn-primary w-75" data-bs-toggle="modal" data-bs-target="#myModal">
+                                <i class="fas fa-cart-plus me-2"></i>Thêm
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>`;
 
+    // --- DỮ LIỆU SẢN PHẨM ---
+
     const nuocDuaProducts = [
-        {img: 'https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg', title: 'Nước Dừa Tươi', desc: 'Mát lạnh, giải khát tự nhiên.', old: '30,000', new: '20,000'},
-        {img: 'https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg', title: 'Nước Dừa Tươi', desc: 'Mát lạnh, giải khát tự nhiên.', old: '30,000', new: '20,000'},
-        {img: 'https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg', title: 'Nước Dừa Tươi', desc: 'Mát lạnh, giải khát tự nhiên.', old: '30,000', new: '20,000'},
-        {img: 'https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg', title: 'Nước Dừa Tươi', desc: 'Mát lạnh, giải khát tự nhiên.', old: '30,000', new: '20,000'}
-    ];
-    const comDuaProducts = [
-        {img: 'https://cpimg.tistatic.com/07312023/b/4/Pure-Coconut-Flakes.jpg', title: 'Cơm Dừa Tươi', desc: 'Nguyên chất, béo ngậy.', old: '50,000', new: '35,000'},
-        {img: 'https://cpimg.tistatic.com/07312023/b/4/Pure-Coconut-Flakes.jpg', title: 'Cơm Dừa Tươi', desc: 'Nguyên chất, béo ngậy.', old: '50,000', new: '35,000'},
-        {img: 'https://cpimg.tistatic.com/07312023/b/4/Pure-Coconut-Flakes.jpg', title: 'Cơm Dừa Tươi', desc: 'Nguyên chất, béo ngậy.', old: '50,000', new: '35,000'},
-        {img: 'https://cpimg.tistatic.com/07312023/b/4/Pure-Coconut-Flakes.jpg', title: 'Cơm Dừa Tươi', desc: 'Nguyên chất, béo ngậy.', old: '50,000', new: '35,000'}
-    ];
-    const banhDuaProducts = [
-        {img: 'https://media.karousell.com/media/photos/products/2020/4/11/vietnamese_roasted_coconut_cru_1586608762_d6c97d0f.jpg', title: 'Bánh Dừa Nướng', desc: 'Thơm ngon, giòn rụm.', old: '70,000', new: '55,000'},
-        {img: 'https://media.karousell.com/media/photos/products/2020/4/11/vietnamese_roasted_coconut_cru_1586608762_d6c97d0f.jpg', title: 'Bánh Dừa Nướng', desc: 'Thơm ngon, giòn rụm.', old: '70,000', new: '55,000'},
-        {img: 'https://media.karousell.com/media/photos/products/2020/4/11/vietnamese_roasted_coconut_cru_1586608762_d6c97d0f.jpg', title: 'Bánh Dừa Nướng', desc: 'Thơm ngon, giòn rụm.', old: '70,000', new: '55,000'},
-        {img: 'https://media.karousell.com/media/photos/products/2020/4/11/vietnamese_roasted_coconut_cru_1586608762_d6c97d0f.jpg', title: 'Bánh Dừa Nướng', desc: 'Thơm ngon, giòn rụm.', old: '70,000', new: '55,000'}
+        {
+            img: 'https://product.hstatic.net/200000255201/product/nuoc-dua-tuoi-cocoxim-330ml_29396e921d4c4e2098239a2f7c006437_large.jpg', 
+            title: 'Nước Dừa Tươi', 
+            desc: '100% nước dừa tươi nguyên chất, ngọt thanh tự nhiên.', 
+            old: '30,000', 
+            new: '20,000', 
+            rating: 4.5},
+        {
+            img: 'https://product.hstatic.net/200000255201/product/nuoc_dua_sen_330ml_pack_4_d601d84878a848979a0b925b85a363b9_large.jpg', 
+            title: 'Nước Dừa Hạt Sen', 
+            desc: 'Kết hợp cùng hạt sen thơm bùi, thức uống bổ dưỡng.', 
+            old: '35,000', 
+            new: '25,000', 
+            rating: 5},
+        {
+            img: 'https://product.hstatic.net/200000255201/product/nuoc_dua_dua_330ml_pack_4_d04a600392354c41933c162f275a25e2_large.jpg', 
+            title: 'Nước Dừa Vị Dứa', 
+            desc: 'Hương vị dứa nhiệt đới, sảng khoái bất ngờ.', 
+            old: '32,000', 
+            new: '22,000', 
+            rating: 4},
+        {
+            img: 'https://product.hstatic.net/200000255201/product/dualuoithachdua450ml-chai_73f94b8b4b6242e4b5a484b9f2977936.jpg', 
+            title: 'Nước Dừa Có Thạch', 
+            desc: 'Thêm thạch dừa dai giòn cho trải nghiệm thêm thú vị.', 
+            old: '28,000', 
+            new: '24,000', 
+            rating: 4.5
+        }
     ];
     
-    document.querySelector('#nuocdua .row').innerHTML = nuocDuaProducts.map(p => productCardTemplate(p.img, p.title, p.desc, p.old, p.new)).join('');
-    document.querySelector('#comdua .row').innerHTML = comDuaProducts.map(p => productCardTemplate(p.img, p.title, p.desc, p.old, p.new)).join('');
-    document.querySelector('#banhdua .row').innerHTML = banhDuaProducts.map(p => productCardTemplate(p.img, p.title, p.desc, p.old, p.new)).join('');
+    // Dữ liệu cho Cơm Dừa (đã cập nhật)
+    const comDuaProducts = [
+       {
+            img: 'https://bizweb.dktcdn.net/thumb/large/100/434/939/products/com-dua-say-kho-huu-co-vietcoco-goi-100g-1.jpg', 
+            title: 'Cơm Dừa Sấy Giòn Hữu Cơ', 
+            desc: 'Giòn tan, thơm lừng, 100% tự nhiên không đường. Món ăn vặt tuyệt vời cho sức khỏe.', 
+            old: '55,000', 
+            new: '45,000',
+            rating: 4.5
+        },
+        {
+            img: 'https://dongsachfood.com/wp-content/uploads/2021/11/com-dua-say-deo.jpg', 
+            title: 'Cơm Dừa Sấy Dẻo Ít Đường', 
+            desc: 'Mềm dẻo, giữ được độ ẩm và vị ngọt tự nhiên của dừa non. Dùng ăn liền hoặc làm bánh.', 
+            old: '65,000', 
+            new: '59,000',
+            rating: 5
+        },
+        {
+            img: 'https://product.hstatic.net/200000424699/product/com-dua-tuoi-nao-soi-500g_7b89e67d3e6945a08990666016c60232_large.jpg', 
+            title: 'Cơm Dừa Tươi Nạo Sợi', 
+            desc: 'Sợi dừa tươi ngon, béo ngậy, là nguyên liệu không thể thiếu cho các món chè, xôi, làm bánh.', 
+            old: '40,000', 
+            new: '35,000',
+            rating: 5
+        },
+        {
+            img: 'https://bizweb.dktcdn.net/100/434/939/products/bot-com-dua-huu-co-vietcoco-goi-250g-1.jpg', 
+            title: 'Bột Cơm Dừa (Bột Dừa)', 
+            desc: 'Giải pháp thay thế bột mì, giàu chất xơ, phù hợp cho chế độ ăn kiêng, eat clean, keto.', 
+            old: '70,000', 
+            new: '65,000',
+            rating: 4
+        }
+    ];
+
+    // Dữ liệu cho Bánh Dừa (đã cập nhật)
+    const banhDuaProducts = [
+         {
+            img: 'https://jamja.vn/blog/wp-content/uploads/2018/03/cach-lam-banh-dua-nuong-quang-nam.jpg', 
+            title: 'Bánh Dừa Nướng Quảng Nam', 
+            desc: 'Giòn rụm, ngọt bùi, thơm lừng hương dừa nướng. Đặc sản nổi tiếng làm quà.', 
+            old: '65,000', 
+            new: '55,000',
+            rating: 4.5
+        },
+        {
+            img: 'https://product.hstatic.net/1000185761/product/keo-dua-deo-ben-tre-loai-thuong-hang_d3f3bd82c7ac43cc8b111161d0061e88_large.png', 
+            title: 'Kẹo Dừa Dẻo Bến Tre', 
+            desc: 'Hương vị truyền thống, dẻo thơm từ nước cốt dừa nguyên chất và mạch nha.', 
+            old: '85,000', 
+            new: '65,000',
+            rating: 5
+        },
+        {
+            img: 'https://bizweb.dktcdn.net/thumb/large/100/374/684/products/banh-trang-sua-dua-nuong-1.jpg?v=1686908588000', 
+            title: 'Bánh Tráng Sữa Dừa', 
+            desc: 'Món ăn vặt tuổi thơ, giòn tan khi nướng, béo thơm đậm đà hương vị sữa và dừa.', 
+            old: '50,000', 
+            new: '45,000',
+            rating: 4.5
+        },
+        {
+            img: 'https://www.cet.edu.vn/wp-content/uploads/2019/03/banh-bo-nuong-nuoc-cot-dua.jpg', 
+            title: 'Bánh Bò Nướng Cốt Dừa', 
+            desc: 'Mềm xốp, thơm lừng mùi lá dứa và nước cốt dừa, với cấu trúc rễ tre đẹp mắt.', 
+            old: '70,000', 
+            new: '60,000',
+            rating: 4
+        }
+    ];
+    
+    /**
+     * Hàm render sản phẩm vào tab tương ứng
+     */
+    function renderProducts(tabId, products) {
+        const productContainer = document.querySelector(`${tabId} .row`);
+        if (!productContainer) return;
+        
+        const productsHTML = products.map(product => productCardTemplate(product)).join('');
+        
+        productContainer.innerHTML = productsHTML;
+    }
+    
+    // SỬA LẠI CÁCH GỌI HÀM CHO ĐÚNG
+    // Giờ đây chúng ta truyền cả đối tượng 'p' vào hàm, thay vì các thuộc tính riêng lẻ.
+    document.querySelector('#nuocdua .row').innerHTML = nuocDuaProducts.map(p => productCardTemplate(p)).join('');
+    document.querySelector('#comdua .row').innerHTML = comDuaProducts.map(p => productCardTemplate(p)).join('');
+    document.querySelector('#banhdua .row').innerHTML = banhDuaProducts.map(p => productCardTemplate(p)).join('');
 </script>
 
 </html>
