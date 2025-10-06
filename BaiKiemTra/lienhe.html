@@ -16,10 +16,26 @@
             background: linear-gradient(135deg, #f1f8e9, #dcedc8);
         }
 
-        .navbar-custom {
-            background-color: #2ecc71;
+       .navbar-custom-gradient {
+            background: linear-gradient(90deg, #1e8a35 0%, #3b82f6 100%);
         }
 
+        .navbar-brand {
+            transition: color 0.3s;
+        }
+
+        .navbar-brand:hover {
+            color: #facc15 !important;
+        }
+
+        .nav-link {
+            transition: all 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #facc15 !important;
+            transform: translateY(-2px);
+        }
         .btn-custom {
             background-color: #27ae60;
             border-color: #27ae60;
@@ -49,19 +65,20 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg shadow sticky-top navbar-custom">
+     <nav class="navbar navbar-expand-lg sticky-top navbar-dark navbar-custom-gradient shadow">
         <div class="container">
-            <a class="navbar-brand text-white fw-bold fs-3" href="index.html">Nước Dừa Thiên Nhiên</a>
+            <a class="navbar-brand fs-2 fw-bold" href="#">Siêu Thị Dừa</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link text-white" href="trangchu.html">Trang Chủ</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Sản Phẩm</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#">Giỏ Hàng</a></li>
-                    <li class="nav-item"><a class="nav-link text-white active fw-bold" href="lienhe.html">Liên Hệ</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="TrangBanHang.html">Trang Chủ</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="gioiThieu.html">Giới thiệu</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="sanPham.html">Sản Phẩm</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="lienHe.html">Liên Hệ</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold" href="gioithieutv.html">Giới thiệu thành viên</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html"><i class="bi bi-box-arrow-in-left"></i></a></li>
                 </ul>
             </div>
         </div>
@@ -129,70 +146,51 @@
             </div>
     </section>
 
-    <footer class="bg-dark text-white py-3">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 col-md-3 mb-3">
-                    <h5 class="fw-bold mb-3">Thông tin liên hệ</h5>
-                    <ul class="list-unstyled">
-                        <li>Mua hàng: 1800 2097 (7h30 - 22h00)</li>
-                        <li>Khách hàng: 1800 2093 (8h00 - 21h30)</li>
-                        <li>Phương thức thanh toán</li>
-                        <li class="mt-2">
-                            <img src="./apple.png" alt="Apple Pay" class="me-2" style="width: 40px; height: 40px;">
-                            <img src="./vnpay.jpg" alt="VNPAY" class="me-2" style="width: 40px; height: 40px;">
-                            <img src="./momo.png" alt="MoMo" class="me-2" style="width: 40px; height: 40px;">
-                            <img src="./zalo.png" alt="ZaloPay" class="me-2" style="width: 40px; height: 40px;">
-                        </li>
+    <footer class="bg-dark text-white pt-5 pb-4 mt-5">
+    <div class="container text-center text-md-start">
+        <div class="row text-center text-md-start">
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h5 class="text-uppercase mb-4 fw-bold text-warning">Siêu Thị Dừa</h5>
+                <p>Chuyên cung cấp các sản phẩm từ dừa chất lượng cao, đảm bảo an toàn và hương vị tự nhiên. Mang đến trải nghiệm tốt nhất cho khách hàng.</p>
+            </div>
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                 <h5 class="text-uppercase mb-4 fw-bold text-warning">Sản phẩm</h5>
+                 <p><a href="#" class="text-white text-decoration-none">Nước dừa</a></p>
+                 <p><a href="#" class="text-white text-decoration-none">Cơm dừa</a></p>
+                 <p><a href="#" class="text-white text-decoration-none">Bánh dừa</a></p>
+                 <p><a href="#" class="text-white text-decoration-none">Kẹo dừa</a></p>
+            </div>
+             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+                 <h5 class="text-uppercase mb-4 fw-bold text-warning">Hỗ trợ</h5>
+                 <p><a href="#" class="text-white text-decoration-none">Chính sách đổi trả</a></p>
+                 <p><a href="#" class="text-white text-decoration-none">Chính sách bảo mật</a></p>
+                 <p><a href="#" class="text-white text-decoration-none">Phương thức vận chuyển</a></p>
+                 <p><a href="#" class="text-white text-decoration-none">Liên hệ</a></p>
+            </div>
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+                 <h5 class="text-uppercase mb-4 fw-bold text-warning">Liên hệ</h5>
+                 <p><i class="fas fa-home me-3"></i>Phú Thọ, Việt Nam</p>
+                 <p><i class="fas fa-envelope me-3"></i>sieuthidua@gmail.com</p>
+                 <p><i class="fas fa-phone me-3"></i>+84 123 456 789</p>
+                 <p><i class="fas fa-print me-3"></i>+84 123 456 789</p>
+            </div>
+        </div>
+        <hr class="mb-4">
+        <div class="row align-items-center">
+            <div class="col-md-7 col-lg-8"><p>© 2025 Copyright: <a href="#" class="text-warning text-decoration-none">sieuthidua.com</a></p></div>
+            <div class="col-md-5 col-lg-4">
+                <div class="text-center text-md-end">
+                    <ul class="list-unstyled list-inline">
+                        <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white fs-4"><i class="fab fa-facebook"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white fs-4"><i class="fab fa-youtube"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white fs-4"><i class="fab fa-instagram"></i></a></li>
+                        <li class="list-inline-item"><a href="#" class="btn-floating btn-sm text-white fs-4"><i class="fab fa-tiktok"></i></a></li>
                     </ul>
-                </div>
-                <div class="col-12 col-md-3 mb-3">
-                    <h5 class="fw-bold mb-3">Địa chỉ</h5>
-                    <ul class="list-unstyled">
-                        <li>Mua hàng trực tuyến Online</li>
-                        <li>Mua hàng tại cửa hàng Online</li>
-                        <li>Chính sách bảo hành</li>
-                        <li>Tra cứu đơn hàng</li>
-                        <li>Chính sách bảo hành</li>
-                        <li>Quy định đổi trả đổi trả</li>
-                    </ul>
-                </div>
-                <div class="col-12 col-md-3 mb-3">
-                    <h5 class="fw-bold mb-3">Dịch vụ bán hàng và thông tin khác</h5>
-                    <ul class="list-unstyled">
-                        <li>Khách hàng doanh nghiệp (B2B)</li>
-                        <li>Ưu đãi thanh toán</li>
-                        <li>Chính sách bảo mật thông tin</li>
-                        <li>Liên hệ hỗ trợ kinh doanh</li>
-                        <li>Tuyển dụng</li>
-                        <li>Tài trợ trực tuyến</li>
-                    </ul>
-                </div>
-                <div class="col-12 col-md-3 mb-3">
-                    <h5 class="fw-bold mb-3">Kết nối với chúng tôi</h5>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#" class="text-white me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="YouTube"><i class="fab fa-youtube"></i></a>
-                            <a href="#" class="text-white me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="Instagram"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="text-white me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="TikTok"><i class="fab fa-tiktok"></i></a>
-                            <a href="#" class="text-white me-2" data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="Facebook"><i class="fab fa-facebook"></i></a>
-                            <a href="#" class="text-white" data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="Zalo"><i class="fab fa-whatsapp"></i></a>
-                        </li>
-                    </ul>
-                    <p class="mt-3">Website thân thiện</p>
-                    <p>Hỗ trợ kinh doanh trực tuyến</p>
-                    <p class="text-warning">nuodua.vui</p>
                 </div>
             </div>
-            <hr class="border-light opacity-50">
-            <p class="text-center mb-0 text-white-50">© 2025 nuocdua247. All rights reserved.</p>
         </div>
-    </footer>
+    </div>
+</footer>
 
     <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
